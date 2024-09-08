@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Nginx+Lvs+keepAlived构建高可用集群环境 | 树灼的博客</title><meta name="author" content="树灼"><meta name="copyright" content="树灼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nginx+Lvs+keepAlived构建高可用集群环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx+Lvs+keepAlived构建高可用集群环境">
+<meta property="og:url" content="https://blog.chenshuzhuo.com/2021/09/01/linux/Nginx+Lvs+keepAlived%E6%9E%84%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="树灼的博客">
+<meta property="og:description" content="Nginx+Lvs+keepAlived构建高可用集群环境">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.chenshuzhuo.com/img/202303121511512.png">
+<meta property="article:published_time" content="2021-09-01T07:58:59.000Z">
+<meta property="article:modified_time" content="2024-05-05T03:45:27.000Z">
+<meta property="article:author" content="树灼">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.chenshuzhuo.com/img/202303121511512.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenshuzhuo.com/2021/09/01/linux/Nginx+Lvs+keepAlived%E6%9E%84%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 树灼","link":"链接: ","source":"来源: 树灼的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Nginx+Lvs+keepAlived构建高可用集群环境',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-05 11:45:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/me/me-log.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.chenshuzhuo.com/img/202303121511512.png')"><nav id="nav"><span id="blog-info"><a href="/" title="树灼的博客"><span class="site-name">树灼的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Nginx+Lvs+keepAlived构建高可用集群环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-09-01T07:58:59.000Z" title="发表于 2021-09-01 15:58:59">2021-09-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-05T03:45:27.000Z" title="更新于 2024-05-05 11:45:27">2024-05-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/">linux</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[TOC]</p>
+<p>利用Keepalive+Nginx搭建与阿里云SLB一样高效的高可用应用架构</p>
+<p>安装keepalive请查看另一篇文章</p>
+<p>安装nginx 略</p>
+<h1 id="高可用集群规划"><a href="#高可用集群规划" class="headerlink" title="高可用集群规划"></a>高可用集群规划</h1><h2 id="集群环境介绍"><a href="#集群环境介绍" class="headerlink" title="集群环境介绍"></a>集群环境介绍</h2><ul>
+<li>操作系统环境： CentOS Linux release 7.9.2009</li>
+<li>Nginx 版本：  nginx&#x2F;1.20.1</li>
+<li>高可用版本：keepalived-2.2.2</li>
+<li>root 系统管理员用户登录安装部署</li>
+</ul>
+<h2 id="集群规划与配置"><a href="#集群规划与配置" class="headerlink" title="集群规划与配置"></a>集群规划与配置</h2><table>
+<thead>
+<tr>
+<th align="center"><strong>节点名称</strong></th>
+<th align="center"><strong>节点 IP Addr</strong></th>
+<th align="center"><strong>主机名</strong></th>
+<th align="center"><strong>Nginx端口</strong></th>
+<th align="center"><strong>默认主从</strong></th>
+<th align="center">配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VIP</td>
+<td align="center"><strong>192.168.233.100</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">MASTER</td>
+<td align="center">192.168.233.129</td>
+<td align="center">master</td>
+<td align="center">80</td>
+<td align="center">MASTER</td>
+<td align="center">2核2G20GB</td>
+</tr>
+<tr>
+<td align="center">BACKUP</td>
+<td align="center">192.168.233.130</td>
+<td align="center">backup</td>
+<td align="center">80</td>
+<td align="center">BACKUP</td>
+<td align="center">2核2G20GB</td>
+</tr>
+</tbody></table>
+<h1 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h1><p>编写 nginx 服务存活检测脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/bin/check_nginx_alive.sh</span><br></pre></td></tr></table></figure>
+
+<p>不重启脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"> </span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin</span><br><span class="line"></span><br><span class="line">A=$(ps -C nginx --no-header | <span class="built_in">wc</span> -l)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$A</span>&quot;</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;nginx server is died&#x27;</span></span><br><span class="line">    killall keepalived</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>重启一次脚本：一般keepalived 不会挂，所以重启nginx 一次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">A=$(ps -C nginx --no-header |<span class="built_in">wc</span> -l)</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$A</span>&quot;</span> -eq 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="comment">### 这种方式启动nginx，使用 systemctl status nginx 查看状态非 active</span></span><br><span class="line">  <span class="comment">#/usr/local/nginx/sbin/nginx </span></span><br><span class="line">  systemctl start nginx</span><br><span class="line">  <span class="built_in">sleep</span> 2</span><br><span class="line">  A2=$(ps -C nginx --no-header |<span class="built_in">wc</span> -l)</span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$A2</span>&quot;</span> -eq 0 ]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    <span class="comment">#systemctl stop keepalived</span></span><br><span class="line">    killall keepalived</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /usr/bin/check_nginx_alive.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="监测脚本解析"><a href="#监测脚本解析" class="headerlink" title="监测脚本解析"></a>监测脚本解析</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -C nginx --no-header</span><br></pre></td></tr></table></figure>
+
+<p>这里涉及ps 的用法，我们一般用ps查看相关进程，一般都是用<br><strong>ps -ef | grep XX 或 ps -aux| grep XX</strong> 的模式<br>如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep nginx</span><br><span class="line">root       2248      1  0 19:13 ?        00:00:00 nginx: master process ./nginx</span><br><span class="line">nobody     3265   2248  0 20:16 ?        00:00:00 nginx: worker process</span><br><span class="line">root       4791   4742  0 22:05 pts/1    00:00:00 grep --color=auto nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>但是这样通常都会覆盖一个grep的进程<br>我们可以用ps -C 或ps -c 的方式， -C 后面接命令的名字 ，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ps -C nginx</span></span><br><span class="line">   PID TTY          TIME CMD</span><br><span class="line">  4983 ?        00:00:00 nginx</span><br><span class="line">  4984 ?        00:00:00 nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>–no-header 就是去掉title</p>
+<p>wc -l  行数计算</p>
+<p>如果值为0，即代表服务未启动<br>如果值为非0，即代表服务已启动</p>
+<h2 id="安装killall命令"><a href="#安装killall命令" class="headerlink" title="安装killall命令"></a>安装killall命令</h2><p>为验证高可用，因centos安装的是minimal 版本，默认没有该命令，需要安装一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y psmisc</span><br></pre></td></tr></table></figure>
+
+<h1 id="防止脑裂"><a href="#防止脑裂" class="headerlink" title="防止脑裂"></a>防止脑裂</h1><h2 id="关闭SELinux"><a href="#关闭SELinux" class="headerlink" title="关闭SELinux"></a>关闭SELinux</h2><ol>
+<li><p>查看 SELinux</p>
+<p> <strong>MASTER主</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getenforce</span></span><br><span class="line">Permissive   <span class="comment">### 允许的</span></span><br><span class="line"><span class="comment"># /usr/sbin/sestatus -v</span></span><br><span class="line">SELinux status:                 enabled</span><br><span class="line">SELinuxfs mount:                /sys/fs/selinux</span><br><span class="line">SELinux root directory:         /etc/selinux</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> <strong>BACKUP从</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getenforce</span></span><br><span class="line">Enforcing    <span class="comment">### 强制执行</span></span><br><span class="line"><span class="comment"># /usr/sbin/sestatus -v</span></span><br><span class="line">SELinux status:                 enabled</span><br><span class="line">SELinuxfs mount:                /sys/fs/selinux</span><br><span class="line">SELinux root directory:         /etc/selinux</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>临时关闭</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">##设置SELinux 成为permissive模式</span><br><span class="line">##setenforce 1 设置SELinux 成为enforcing模式</span><br><span class="line"># setenforce 0</span><br></pre></td></tr></table></figure>
+
+<p>setenforce 0 #设置为宽容模式</p>
+<p>但这样只在本次生效，重启服务器后将失效。</p>
+</li>
+<li><p>永久关闭</p>
+<p>如果要永久关闭，还需要修改配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/selinux/config</span></span><br><span class="line"><span class="comment">### 将</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment">### 改为</span></span><br><span class="line">SELINUX=disabled</span><br></pre></td></tr></table></figure>
+
+<p>设置后需要重启才能生效</p>
+</li>
+</ol>
+<h2 id="iptables防火墙配置"><a href="#iptables防火墙配置" class="headerlink" title="iptables防火墙配置"></a>iptables防火墙配置</h2><p>centos 防火墙有两种管理方式firewall， iptables两者不能同时开启</p>
+<p>防火墙开启的情况下，我们需要加入一条配置：</p>
+<p>iptables</p>
+<p>编辑vim &#x2F;etc&#x2F;sysconfig&#x2F;iptables</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p vrrp -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>添加规则一定不要在 <code>-A INPUT -j REJECT --reject-with icmp-host-prohibited</code> 之后，一定要加在其前面。</p>
+<p>配置完之后 <code>reload</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables reload</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Firewalld-防火墙配置"><a href="#Firewalld-防火墙配置" class="headerlink" title="Firewalld 防火墙配置"></a>Firewalld 防火墙配置</h2><p>问题就是出现在了防火墙这里，防火墙阻止了vrrp组包发送</p>
+<p>如果是Firewalld防火墙 则主、备都运行下面的命令</p>
+<p>centos7 默认防火墙firewall</p>
+<p>开启vrrp 协议</p>
+<p>主备都运行下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT 0 --protocol vrrp -j ACCEPT</span><br><span class="line"></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="重新启动服务"><a href="#重新启动服务" class="headerlink" title="重新启动服务"></a>重新启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl restart keepalived</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># journalctl -xe</span></span><br><span class="line"><span class="comment"># 查看进程情况</span></span><br><span class="line">ps -aux |grep keepalived</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="配置-keepalive"><a href="#配置-keepalive" class="headerlink" title="配置 keepalive"></a>配置 keepalive</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 非抢占模式，这种模式主要是针对主机崩溃，集群已经重新选出新的主机，并且原来的主机重新上线后并不争夺主机的情况。这种模式适合那些倾向于认为崩溃的主机即便上线还是会出现崩溃的场景。</span><br><span class="line">这种模式的核心思想是将所有节点的优先级(priority)值设为相同，当两个节点的优先级相同时，以节点发送VRRP通告的IP作为比较对象，IP较大者为MASTER。</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/keepalived/keepalived.conf</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="master配置"><a href="#master配置" class="headerlink" title="master配置"></a>master配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line"></span><br><span class="line"><span class="comment"># version keepalived-2.2.2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全局配置</span></span><br><span class="line">global_defs &#123;</span><br><span class="line">  <span class="comment"># 定义报警邮件地址</span></span><br><span class="line">   notification_email &#123;</span><br><span class="line">     acassen@firewall.loc</span><br><span class="line">     failover@firewall.loc</span><br><span class="line">     sysadmin@firewall.loc</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment"># 定义发送邮件的地址</span></span><br><span class="line">   notification_email_from Alexandre.Cassen@firewall.loc</span><br><span class="line">   smtp_server 192.168.200.1</span><br><span class="line">   smtp_connect_timeout 30</span><br><span class="line">   <span class="comment"># 定义路由标识信息，相同局域网唯一</span></span><br><span class="line">   router_id LVS_DEVEL</span><br><span class="line">   <span class="comment"># 检查vrrp报文中的所有地址比较耗时，设置此标志的意思是如果接收的到报文和上一个报文来至同一个路由器，则不执行检查。默认是跳过检查</span></span><br><span class="line">   vrrp_skip_check_adv_addr</span><br><span class="line">   <span class="comment"># 严格遵守vrrp协议，下面这些功能将会禁止：1.   0 VIP   2. unicast(单播) peers    3. vrrp 版本2的ipv6功能</span></span><br><span class="line">   vrrp_strict</span><br><span class="line">   <span class="comment"># 小数类型，单位秒，在一个网卡上每组gratuitous arp消息之间的延迟时间，默认为0，一个发送的消息=n组 arp报文</span></span><br><span class="line">   vrrp_garp_interval 0</span><br><span class="line">   <span class="comment"># 小数类型，单位秒， 在一个网卡上每组na消息之间的延迟时间，默认为0</span></span><br><span class="line">   vrrp_gna_interval 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_script check_nginx_alive &#123;</span><br><span class="line">    <span class="comment"># 检查nginx的脚本</span></span><br><span class="line">    script <span class="string">&quot;/usr/bin/check_nginx_alive.sh&quot;</span></span><br><span class="line">    <span class="comment"># 检查时间间隔,这个时间不要超过脚本的执行时间，否则会报“Track script chk_nginx is being timed out, expect idle - skipping run”</span></span><br><span class="line">    interval 3</span><br><span class="line">    <span class="comment"># 脚本执行失败则优先级减10</span></span><br><span class="line">    weight -10</span><br><span class="line">    <span class="comment"># 表示两次失败才算失败</span></span><br><span class="line">    fall 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义实例</span></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    <span class="comment"># 主机配置，从机为BACKUP</span></span><br><span class="line">    state MASTER</span><br><span class="line">    <span class="comment"># 网卡名称</span></span><br><span class="line">    interface ens33</span><br><span class="line">    <span class="comment"># 指定VRRP实例ID，范围是0-255.同一个组要一致</span></span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    <span class="comment">## 权重值,值越大，优先级越高，backup设置比master小,这样就能在master宕机后讲backup变为master,而master回复后就可以恢复.</span></span><br><span class="line">    priority 100</span><br><span class="line">    <span class="comment"># 指定发送VRRP通告的间隔。单位是秒。</span></span><br><span class="line">    advert_int 1</span><br><span class="line">    <span class="comment"># 指定认证方式。PASS简单密码认证(推荐),AH:IPSEC认证(不推荐)。密码&quot; 最多8位</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 设备之间使用的虚拟ip地址</span></span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.233.100</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 执行脚本</span></span><br><span class="line">    track_script &#123;</span><br><span class="line">        check_nginx_alive</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 虚拟 vip</span></span><br><span class="line">virtual_server 192.168.233.100 80 &#123;</span><br><span class="line">    delay_loop 6</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 真实服务器</span></span><br><span class="line">    real_server 192.168.233.129 80 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">        TCP_CHECK&#123;</span><br><span class="line">          connect_timeout 3</span><br><span class="line">          nb_get_retry 3</span><br><span class="line">          delay_before_retry 3</span><br><span class="line">          connect_port 80</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="BACKUP配置"><a href="#BACKUP配置" class="headerlink" title="BACKUP配置"></a>BACKUP配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line"></span><br><span class="line"><span class="comment"># version keepalived-2.2.2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全局配置</span></span><br><span class="line">global_defs &#123;</span><br><span class="line">  <span class="comment"># 定义报警邮件地址</span></span><br><span class="line">   notification_email &#123;</span><br><span class="line">     acassen@firewall.loc</span><br><span class="line">     failover@firewall.loc</span><br><span class="line">     sysadmin@firewall.loc</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment"># 定义发送邮件的地址</span></span><br><span class="line">   notification_email_from Alexandre.Cassen@firewall.loc</span><br><span class="line">   smtp_server 192.168.200.1</span><br><span class="line">   smtp_connect_timeout 30</span><br><span class="line">   <span class="comment"># 定义路由标识信息，相同局域网唯一</span></span><br><span class="line">   router_id LVS_DEVEL</span><br><span class="line">   <span class="comment"># 检查vrrp报文中的所有地址比较耗时，设置此标志的意思是如果接收的到报文和上一个报文来至同一个路由器，则不执行检查。默认是跳过检查</span></span><br><span class="line">   vrrp_skip_check_adv_addr</span><br><span class="line">   <span class="comment"># 严格遵守vrrp协议，下面这些功能将会禁止：1.   0 VIP   2. unicast(单播) peers    3. vrrp 版本2的ipv6功能</span></span><br><span class="line">   vrrp_strict</span><br><span class="line">   <span class="comment"># 小数类型，单位秒，在一个网卡上每组gratuitous arp消息之间的延迟时间，默认为0，一个发送的消息=n组 arp报文</span></span><br><span class="line">   vrrp_garp_interval 0</span><br><span class="line">   <span class="comment"># 小数类型，单位秒， 在一个网卡上每组na消息之间的延迟时间，默认为0</span></span><br><span class="line">   vrrp_gna_interval 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_script check_nginx_alive &#123;</span><br><span class="line">    <span class="comment"># 检查nginx的脚本</span></span><br><span class="line">    script <span class="string">&quot;/usr/bin/check_nginx_alive.sh&quot;</span></span><br><span class="line">    <span class="comment"># 检查时间间隔,这个时间不要超过脚本的执行时间，否则会报“Track script chk_nginx is being timed out, expect idle - skipping run”</span></span><br><span class="line">    interval 3</span><br><span class="line">    <span class="comment"># 脚本执行失败则优先级减10</span></span><br><span class="line">    weight -10</span><br><span class="line">    <span class="comment"># 表示两次失败才算失败</span></span><br><span class="line">    fall 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义实例</span></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    <span class="comment"># 主机配置，从机为BACKUP</span></span><br><span class="line">    state MASTER</span><br><span class="line">    <span class="comment"># 网卡名称</span></span><br><span class="line">    interface ens33</span><br><span class="line">    <span class="comment"># 指定VRRP实例ID，范围是0-255.同一个组要一致</span></span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    <span class="comment">## 权重值,值越大，优先级越高，backup设置比master小,这样就能在master宕机后讲backup变为master,而master回复后就可以恢复.</span></span><br><span class="line">    priority 90</span><br><span class="line">    <span class="comment"># 指定发送VRRP通告的间隔。单位是秒。</span></span><br><span class="line">    advert_int 1</span><br><span class="line">    <span class="comment"># 指定认证方式。PASS简单密码认证(推荐),AH:IPSEC认证(不推荐)。密码&quot; 最多8位</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 1111</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 设备之间使用的虚拟ip地址</span></span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.233.100</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 执行脚本</span></span><br><span class="line">    track_script &#123;</span><br><span class="line">        check_nginx_alive</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 虚拟 vip</span></span><br><span class="line">virtual_server 192.168.233.100 80 &#123;</span><br><span class="line">    delay_loop 6</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 真实服务器</span></span><br><span class="line">    real_server 192.168.233.130 80 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">        TCP_CHECK &#123;</span><br><span class="line">          connect_timeout 3</span><br><span class="line">          nb_get_retry 3</span><br><span class="line">          delay_before_retry 3</span><br><span class="line">          connect_port 80</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="重启-keepalive-生效"><a href="#重启-keepalive-生效" class="headerlink" title="重启 keepalive 生效"></a>重启 keepalive 生效</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart keepalived</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>新版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a </span><br></pre></td></tr></table></figure>
+
+<p>查看网卡，只会存在 主master 可以看到 虚拟vip</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>启动两台机器的nginx 和keepalived</p>
+<p>这里129 为master,130 为backup</p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109011645936.png" alt="image-20210901164430138"></p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109011645991.png" alt="image-20210901164446850"></p>
+<p>虚拟vip正确显示master 机器</p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109011645726.png" alt="image-20210901164516002"></p>
+<h1 id="master-当前状态"><a href="#master-当前状态" class="headerlink" title="master 当前状态"></a>master 当前状态</h1><p><img src="https://cdn.chenshuzhuo.com/img/202109011649479.png" alt="master 当前状态"></p>
+<h3 id="backup-当前状态"><a href="#backup-当前状态" class="headerlink" title="backup 当前状态"></a>backup 当前状态</h3><p><img src="https://cdn.chenshuzhuo.com/img/202109011649622.png" alt="BACKUP当前状态"></p>
+<h2 id="使用不重启脚本"><a href="#使用不重启脚本" class="headerlink" title="使用不重启脚本"></a>使用不重启脚本</h2><h3 id="模拟master-宕机"><a href="#模拟master-宕机" class="headerlink" title="模拟master 宕机"></a>模拟master 宕机</h3><p>停止master nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.chenshuzhuo.com/img/202109011652681.png" alt="image-20210901165255246"></p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109011653855.png" alt="image-20210901165325387"></p>
+<h3 id="模拟master-存活"><a href="#模拟master-存活" class="headerlink" title="模拟master 存活"></a>模拟master 存活</h3><p>重启master</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx</span><br><span class="line"></span><br><span class="line">systemctl restart keepalived</span><br></pre></td></tr></table></figure>
+
+<p>可以看见虚拟vip 自动切换为129</p>
+<h2 id="使用重试1次脚本"><a href="#使用重试1次脚本" class="headerlink" title="使用重试1次脚本"></a>使用重试1次脚本</h2><p><img src="https://cdn.chenshuzhuo.com/img/202109021020566.png" alt="image-20210902100322114"></p>
+<h3 id="模拟master-宕机-1"><a href="#模拟master-宕机-1" class="headerlink" title="模拟master 宕机"></a>模拟master 宕机</h3><p>制造配置文件错误</p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109021019272.png" alt="image-20210902100605827"></p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109021021360.png" alt="image-20210902102102375"></p>
+<p>可见成功漂移 backup</p>
+<h3 id="模拟master-存活-1"><a href="#模拟master-存活-1" class="headerlink" title="模拟master 存活"></a>模拟master 存活</h3><p><img src="https://cdn.chenshuzhuo.com/img/202109021022616.png" alt="image-20210902102238847"></p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202109021023940.png" alt="image-20210902102302342"></p>
+<p>成功成功漂移到master</p>
+<p>更多请查看keepalived官网<a target="_blank" rel="noopener" href="http://www.keepalived.org/">http://www.keepalived.org</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.chenshuzhuo.com">树灼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.chenshuzhuo.com/2021/09/01/linux/Nginx+Lvs+keepAlived%E6%9E%84%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/">https://blog.chenshuzhuo.com/2021/09/01/linux/Nginx+Lvs+keepAlived%E6%9E%84%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.chenshuzhuo.com" target="_blank">树灼的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.chenshuzhuo.com/img/202303121511512.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/09/01/linux/Keepalived%E5%AE%89%E8%A3%85/" title="Keepalive安装"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Keepalive安装</div></div></a></div><div class="next-post pull-right"><a href="/2020/07/25/%E5%89%8D%E7%AB%AF/webpack/webpack%E5%AD%A6%E4%B9%A001-helloworld/" title="webpack学习01-helloworld"><img class="cover" src="https://cdn.chenshuzhuo.com/img/20200727141706.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">webpack学习01-helloworld</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/05/linux/Keepalived%E9%9D%9E%E6%8A%A2%E5%8D%A0%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/" title="Keepalived非抢占模式配置"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">Keepalived非抢占模式配置</div></div></a></div><div><a href="/2024/05/05/linux/centos7%E5%AE%89%E8%A3%85jdk17/" title="centos7安装jdk17"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">centos7安装jdk17</div></div></a></div><div><a href="/2024/09/05/linux/Untitled/" title="Untitled"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-05</div><div class="title">Untitled</div></div></a></div><div><a href="/2024/05/05/linux/nginx%20/" title="nginx"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">nginx</div></div></a></div><div><a href="/2024/05/05/linux/ubuntu%20%E5%AE%89%E8%A3%85%20keepalived/" title="ubuntu 安装 keepalived"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">ubuntu 安装 keepalived</div></div></a></div><div><a href="/2024/05/05/linux/%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/" title="安全日志"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">安全日志</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/me/me-log.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">树灼</div><div class="author-info__description">熟悉java的拼写</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><marquee>欢迎访问个人小破站</marquee> <img src="https://cdn.chenshuzhuo.com/img/back.jpg"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">高可用集群规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">集群环境介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E8%A7%84%E5%88%92%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">集群规划与配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">编写脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%B5%8B%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">监测脚本解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85killall%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">安装killall命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E8%84%91%E8%A3%82"><span class="toc-number">3.</span> <span class="toc-text">防止脑裂</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%97%ADSELinux"><span class="toc-number">3.1.</span> <span class="toc-text">关闭SELinux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iptables%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">iptables防火墙配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Firewalld-%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">Firewalld 防火墙配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.4.</span> <span class="toc-text">重新启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-keepalive"><span class="toc-number">4.</span> <span class="toc-text">配置 keepalive</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#master%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">master配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BACKUP%E9%85%8D%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">BACKUP配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E5%90%AF-keepalive-%E7%94%9F%E6%95%88"><span class="toc-number">5.</span> <span class="toc-text">重启 keepalive 生效</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">6.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">7.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.1.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">7.1.1.</span> <span class="toc-text">启动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#master-%E5%BD%93%E5%89%8D%E7%8A%B6%E6%80%81"><span class="toc-number">8.</span> <span class="toc-text">master 当前状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#backup-%E5%BD%93%E5%89%8D%E7%8A%B6%E6%80%81"><span class="toc-number">8.0.1.</span> <span class="toc-text">backup 当前状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8D%E9%87%8D%E5%90%AF%E8%84%9A%E6%9C%AC"><span class="toc-number">8.1.</span> <span class="toc-text">使用不重启脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9Fmaster-%E5%AE%95%E6%9C%BA"><span class="toc-number">8.1.1.</span> <span class="toc-text">模拟master 宕机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9Fmaster-%E5%AD%98%E6%B4%BB"><span class="toc-number">8.1.2.</span> <span class="toc-text">模拟master 存活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%87%8D%E8%AF%951%E6%AC%A1%E8%84%9A%E6%9C%AC"><span class="toc-number">8.2.</span> <span class="toc-text">使用重试1次脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9Fmaster-%E5%AE%95%E6%9C%BA-1"><span class="toc-number">8.2.1.</span> <span class="toc-text">模拟master 宕机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9Fmaster-%E5%AD%98%E6%B4%BB-1"><span class="toc-number">8.2.2.</span> <span class="toc-text">模拟master 存活</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo java维护描述yaml"/></a><div class="content"><a class="title" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml">hexo java维护描述yaml</a><time datetime="2024-09-08T10:13:55.000Z" title="发表于 2024-09-08 18:13:55">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VLOOK-Document-Template"/></a><div class="content"><a class="title" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template">VLOOK-Document-Template</a><time datetime="2024-09-08T07:53:24.000Z" title="发表于 2024-09-08 15:53:24">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署多前端"/></a><div class="content"><a class="title" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端">nginx部署多前端</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postgresql 创建用户权限"/></a><div class="content"><a class="title" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限">postgresql 创建用户权限</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 容器日志文件过大"/></a><div class="content"><a class="title" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大">Docker 容器日志文件过大</a><time datetime="2024-09-05T11:22:04.000Z" title="发表于 2024-09-05 19:22:04">2024-09-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 树灼</div><div class="framework-info"></div><div class="footer_custom_text">Hi, 欢迎访问我的<a href="blog.chenshuzhuo.com">小破站!</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8197503748" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" > </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

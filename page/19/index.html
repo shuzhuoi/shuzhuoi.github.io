@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>树灼的博客</title><meta name="author" content="树灼"><meta name="copyright" content="树灼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="熟悉java的拼写">
+<meta property="og:type" content="website">
+<meta property="og:title" content="树灼的博客">
+<meta property="og:url" content="https://blog.chenshuzhuo.com/page/19/index.html">
+<meta property="og:site_name" content="树灼的博客">
+<meta property="og:description" content="熟悉java的拼写">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.chenshuzhuo.com/me/me-log.png">
+<meta property="article:author" content="树灼">
+<meta property="article:tag" content="树灼">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.chenshuzhuo.com/me/me-log.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenshuzhuo.com/page/19/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 树灼","link":"链接: ","source":"来源: 树灼的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '树灼的博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-08 18:42:32'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/me/me-log.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.chenshuzhuo.com/img/202303121427036.png')"><nav id="nav"><span id="blog-info"><a href="/" title="树灼的博客"><span class="site-name">树灼的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">树灼的博客</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/02/26/%E5%85%AB%E8%82%A1%E6%96%87/20-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98/" title="20-计算机网络面试题"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="20-计算机网络面试题"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/02/26/%E5%85%AB%E8%82%A1%E6%96%87/20-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98/" title="20-计算机网络面试题">20-计算机网络面试题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-26T09:04:45.000Z" title="发表于 2023-02-26 17:04:45">2023-02-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content">
+  789f422a2d7bdd063fa6a6c74ea728f6ca4706e7659c9f2df1722027f1e89a75ec1d81be05952841e743323cbc5035f785abdcae65f0368f31b58e28a013d414d867cca566d2596bd5a0c0b23530f0cfb79c8d25e2afd2fbc27c0a84fe96845f6a7b8a9b08066e03425c1fecd28fd3ff14960b05c066bb219aa32df6470b9a2343aa914660b375335bb9563a9844290d12f08aa8d6cfd0b88ca37f4d9577a4a24dac1c0512d253d8bbf6ff2f50613418f7f0c289702eec00641889e54c83f85bcc7a5e184e0854f70126790f120036dfc2ed2bce23507d275f063a1214d0e9ebd21f3edeb3c0d4e69d605a385573afa593cb358ffcf6179e8 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/02/26/%E5%85%AB%E8%82%A1%E6%96%87/22-23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="22-23种设计模式总结"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22-23种设计模式总结"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/02/26/%E5%85%AB%E8%82%A1%E6%96%87/22-23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="22-23种设计模式总结">22-23种设计模式总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-26T09:04:45.000Z" title="发表于 2023-02-26 17:04:45">2023-02-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content">
+  789f422a2d7bdd063fa6a6c74ea728f67ddd854fa74661fed23e1009350ce8f021dc6e2b1144213a98a3ef17ac8ecb66e0dd21ff4e724731ce2daec11179d865509fc04baad052360b49274c88b83ec93ad6e6db36c6bf651bfa748111e66440ca4908e3cc159783dd28844c5193a493e8aad2d95aebd8eaf380f9835f771a389ca5923acd0a250fabce5b5cd963510609e7b46da3aa9f9ff7ea60f5ee84320c2c15326db51988c67746f5e49470cd88fb3d50b17bf1c3f49f90ffe64e99177f68c501219e569ae0f317a017d2f246d4bace1607481339813d794d496e616e1f2a519873e895e8de803f400b3696981b7ddbce1148c689361 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/09/02/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" title="观察者模式"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="观察者模式"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/02/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" title="观察者模式">观察者模式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-02T14:50:19.000Z" title="发表于 2021-09-02 22:50:19">2021-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/java/">java</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">什么是观察者模式在对象之间定义了一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会收到通知并自动更新。
+其实就是发布订阅模式，发布者发布信息，订阅者获取信息，订阅了就能收到信息，没订阅就收不到信息。x
+应用场景Zookeeper事件通知节点、消息订阅通知、安卓开发事件注册
+分布式配置中心
+原理类图
+抽象被观察者角色：也就是一个抽象主题，它把所有对观察者对象的引用保存在一个集合中，每个主题都可以有任意数量的观察者。抽象主题提供一个接口，可以增加和删除观察者角色。一般用一个抽象类和接口来实现。
+抽象观察者角色：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。
+具体被观察者角色：也就是一个具体的主题，在集体主题的内部状态改变时，所有登记过的观察者发出通知。
+具体观察者角色：实现抽象观察者角色所需要的更新接口，一边使本身的状态与制图的状态相协调。
+手写简单实现具体代码定义事件对象123456789101112131415161718import lombok.AllArgsConstructor;import lombok.Data;import lombok.NoArgsC ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/09/01/linux/Keepalived%E5%AE%89%E8%A3%85/" title="Keepalive安装"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Keepalive安装"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/01/linux/Keepalived%E5%AE%89%E8%A3%85/" title="Keepalive安装">Keepalive安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-01T07:58:59.000Z" title="发表于 2021-09-01 15:58:59">2021-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/keepalive/">keepalive</a></span></div><div class="content">
+  33f17f46c4b3f32b4e971982aed5fead7cdd2a21945326b3a5e98e1d5774da73b9bda7c7b125b8c004353419faaca8178c0716f8c55b0b3f31555e26c9ebf3afc869ea212ce2e5374d387c95b58baf8978d57ca5baebec4a46ec7c0670ed9b4501e903f5c0925f378b6e2e7e89d653d705e1a97bb4bc9b9fc63a38a1c4f35f7fd1c084944ae9dc948cad41ade3a0d2dc92c62ece529db9bb6c996ed0805f421f15422f04f86691ba45c641ff2a8c97acb8b73e344dee767bcd1291d5d1edff22a520d255f48b358b9e5352d7b7a468a7da0473b4b869ffdebc5306da51859034cad3099610a159b77adb4e3239e9cd3380bfcb90cf5a78f95 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/09/01/linux/Nginx+Lvs+keepAlived%E6%9E%84%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/" title="Nginx+Lvs+keepAlived构建高可用集群环境"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nginx+Lvs+keepAlived构建高可用集群环境"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/01/linux/Nginx+Lvs+keepAlived%E6%9E%84%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/" title="Nginx+Lvs+keepAlived构建高可用集群环境">Nginx+Lvs+keepAlived构建高可用集群环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-01T07:58:59.000Z" title="发表于 2021-09-01 15:58:59">2021-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">[TOC]
+利用Keepalive+Nginx搭建与阿里云SLB一样高效的高可用应用架构
+安装keepalive请查看另一篇文章
+安装nginx 略
+高可用集群规划集群环境介绍
+操作系统环境： CentOS Linux release 7.9.2009
+Nginx 版本：  nginx&#x2F;1.20.1
+高可用版本：keepalived-2.2.2
+root 系统管理员用户登录安装部署
+
+集群规划与配置
+
+
+节点名称
+节点 IP Addr
+主机名
+Nginx端口
+默认主从
+配置
+
+
+
+VIP
+192.168.233.100
+
+
+
+
+
+
+MASTER
+192.168.233.129
+master
+80
+MASTER
+2核2G20GB
+
+
+BACKUP
+192.168.233.130
+backup
+80
+BACKUP
+2核2G20GB
+
+
+编写脚本编写 nginx 服务存活检测脚本
+1vim /usr/bin/check_nginx_alive.sh
+
+不重启脚本
+12345678910#!/bin/sh PATH=/bin:/sbin:/usr/bin:/usr/sbinA=$(p ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/07/25/%E5%89%8D%E7%AB%AF/webpack/webpack%E5%AD%A6%E4%B9%A001-helloworld/" title="webpack学习01-helloworld"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/20200727141706.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="webpack学习01-helloworld"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/25/%E5%89%8D%E7%AB%AF/webpack/webpack%E5%AD%A6%E4%B9%A001-helloworld/" title="webpack学习01-helloworld">webpack学习01-helloworld</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-25T02:23:37.000Z" title="发表于 2020-07-25 10:23:37">2020-07-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/webpack/">webpack</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/webpack/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">基本安装首先我们创建一个目录，初始化 npm，然后 在本地安装 webpack，接着安装 webpack-cli（此工具用于在命令行中运行 webpack）：
+在 webpack4 之后webpack 和webpack-cli 已经分开，需要单独安装
+123mkdir webpack-demo &amp;&amp; cd webpack-demonpm init -ynpm install webpack webpack-cli --save-dev
+
+注意：
+
+由于npm安装走的是国外的网络，比较慢容易出现安装失败的现象。
+可以用yarn安装，首先得全局安装yarn，npm install yarn -g 。
+或使用nrm快速切换npm源，首先得全局安装nrm, npm install -g nrm。
+nrm 使用：nrm ls 查看可选源。
+nrm test npm 测试速度。看哪个快就use哪个。
+nrm use cnpm 使用cnpm 。
+
+现在我们将创建以下目录结构、文件和内容：
+12345  webpack-demo  |- package.json+ |- index.h ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/07/22/other/%E5%88%86%E5%B8%83%E5%BC%8FMinIO%E5%85%A5%E9%97%A8/" title="分布式MinIO入门"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/20200722181656.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分布式MinIO入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/22/other/%E5%88%86%E5%B8%83%E5%BC%8FMinIO%E5%85%A5%E9%97%A8/" title="分布式MinIO入门">分布式MinIO入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-22T10:14:44.000Z" title="发表于 2020-07-22 18:14:44">2020-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/">分布式存储</a></span></div><div class="content">简介MinIO 是一个基于Apache License v2.0开源协议的对象存储服务。它兼容亚马逊S3云存储服务接口，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。
+MinIO是一个非常轻量的服务,可以很简单的和其他应用的结合，类似 NodeJS, Redis 或者 MySQL。
+MinIO是一种高性能的分布式对象存储系统。它是软件定义的，可在行业标准硬件上运行，并且在Apache V2许可下是100％开放源代码。
+MinIO的不同之处在于，它从一开始就被设计为私有云对象存储的标准。由于MinIO是专门为仅服务对象而构建的，因此单层体系结构可在不妥协的情况下实现所有必需的功能。结果是一个同时具有性能，可伸缩性和轻量级的云原生对象服务器。
+尽管MinIO在传统对象存储用例（例如辅助存储，灾难恢复和归档）方面表现出色，但在克服与机器学习，分析和云原生应用程序工作负载相关的私有云挑战方面却独树一帜。
+更多请参考官方网站：https://min.io/
+单机安装二进制安装123456 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/07/22/other/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99/" title="记录一些好网站"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/20200722165440.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记录一些好网站"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/22/other/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99/" title="记录一些好网站">记录一些好网站</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-22T08:34:38.000Z" title="发表于 2020-07-22 16:34:38">2020-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A5%BD%E7%BD%91%E5%9D%80/">好网址</a></span></div><div class="content">学习猿学：http://yuanxue365.com/简书：https://www.jianshu.com/doyoudo：http://www.doyoudo.com/好知网：http://www.howzhi.com/学小易（大学生搜题）https://www.51xuexiaoyi.com/
+书籍ePuBw（优质电子书下载网站）：https://epubw.com/鸠摩搜书：https://www.jiumodiary.com/书伴：https://bookfere.com/ePUBee电子书库：http://cn.epubee.com/books/超星读书：http://book.chaoxing.com/Owllook：https://www.owllook.net/书格：https://new.shuge.org/相识电子书：http://m.xiangshi123.com/
+冷知识 &#x2F; 黑科技全球网络攻击实时地图：https://cybermap.kaspersky.com/毒鸡汤：http://www.nows.fun/微景天下：http://www.vize ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/07/22/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9D%A5%E5%B9%B2%E6%8E%89%20if-else/" title="用设计模式来干掉 if-else"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用设计模式来干掉 if-else"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/22/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9D%A5%E5%B9%B2%E6%8E%89%20if-else/" title="用设计模式来干掉 if-else">用设计模式来干掉 if-else</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-22T08:24:46.000Z" title="发表于 2020-07-22 16:24:46">2020-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/java/">java</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">前言物流行业中，通常会涉及到EDI报文(XML格式文件)传输和回执接收，每发送一份EDI报文，后续都会收到与之关联的回执（标识该数据在第三方系统中的流转状态）。
+这里枚举几种回执类型：MT1101、MT2101、MT4101、MT8104、MT8105、MT9999，系统在收到不同的回执报文后，会执行对应的业务逻辑处理。当然，实际业务场景并没有那么笼统，这里以回执处理为演示案例
+模拟一个回执类
+1234567891011121314@Datapublic class Receipt &#123;    /**     * 回执信息     */    String message;    /**     * 回执类型(`MT1101、MT2101、MT4101、MT8104、MT8105、MT9999`)     */    String type;&#125;
+
+模拟一个回执生成器
+12345678910111213public class ReceiptBuilder &#123;    public static List&lt;Receipt&gt; generateRecei ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/07/22/%E5%9B%BE%E5%BA%8A/Github+jsDelivr+PicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="Github+jsDelivr+PicGo搭建图床"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Github+jsDelivr+PicGo搭建图床"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/22/%E5%9B%BE%E5%BA%8A/Github+jsDelivr+PicGo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="Github+jsDelivr+PicGo搭建图床">Github+jsDelivr+PicGo搭建图床</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-22T02:24:46.000Z" title="发表于 2020-07-22 10:24:46">2020-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9B%BE%E5%BA%8A/">图床</a></span></div><div class="content">新建GitHub仓库
+生成token
+
+填入note，note就写新建的仓库名一致即可  和选中一些权限
+
+
+
+
+picgo 设置
+
+设定仓库名：用户名&#x2F;新建的仓库名
+设定分支名：master
+设定Token：上面生成的token
+指定存储路径：就是上传到那个文件夹的意思，不写就上传根目录
+设定自定义域名：填写 https://cdn.jsdelivr.net/gh/用户名/图床仓库名 即可
+
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/18/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/#content-inner">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/20/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/me/me-log.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">树灼</div><div class="author-info__description">熟悉java的拼写</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><marquee>欢迎访问个人小破站</marquee> <img src="https://cdn.chenshuzhuo.com/img/back.jpg"></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo java维护描述yaml"/></a><div class="content"><a class="title" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml">hexo java维护描述yaml</a><time datetime="2024-09-08T10:13:55.000Z" title="发表于 2024-09-08 18:13:55">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VLOOK-Document-Template"/></a><div class="content"><a class="title" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template">VLOOK-Document-Template</a><time datetime="2024-09-08T07:53:24.000Z" title="发表于 2024-09-08 15:53:24">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署多前端"/></a><div class="content"><a class="title" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端">nginx部署多前端</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postgresql 创建用户权限"/></a><div class="content"><a class="title" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限">postgresql 创建用户权限</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 容器日志文件过大"/></a><div class="content"><a class="title" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大">Docker 容器日志文件过大</a><time datetime="2024-09-05T11:22:04.000Z" title="发表于 2024-09-05 19:22:04">2024-09-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ai/"><span class="card-category-list-name">ai</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/"><span class="card-category-list-name">db</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/mongodb/"><span class="card-category-list-name">mongodb</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/postgresql/"><span class="card-category-list-name">postgresql</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/gpt/"><span class="card-category-list-name">gpt</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/jvm/" style="font-size: 1.13em; color: #999a9c">jvm</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.13em; color: #999a9c">设计模式</a> <a href="/tags/hexo/" style="font-size: 1.27em; color: #99a0a9">hexo</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 1.2em; color: #999da3">正则</a> <a href="/tags/git/" style="font-size: 1.27em; color: #99a0a9">git</a> <a href="/tags/jdk8/" style="font-size: 1.13em; color: #999a9c">jdk8</a> <a href="/tags/unbuntu/" style="font-size: 1.4em; color: #99a5b6">unbuntu</a> <a href="/tags/gpt/" style="font-size: 1.1em; color: #999">gpt</a> <a href="/tags/%E5%90%B9%E6%B0%B4/" style="font-size: 1.1em; color: #999">吹水</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/vercel/" style="font-size: 1.1em; color: #999">vercel</a> <a href="/tags/maven/" style="font-size: 1.17em; color: #999c9f">maven</a> <a href="/tags/postgresql/" style="font-size: 1.13em; color: #999a9c">postgresql</a> <a href="/tags/esxi/" style="font-size: 1.3em; color: #99a1ac">esxi</a> <a href="/tags/ubuntu/" style="font-size: 1.13em; color: #999a9c">ubuntu</a> <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">小技巧</a> <a href="/tags/idea/" style="font-size: 1.1em; color: #999">idea</a> <a href="/tags/ai/" style="font-size: 1.2em; color: #999da3">ai</a> <a href="/tags/docker/" style="font-size: 1.43em; color: #99a6b9">docker</a> <a href="/tags/webpack/" style="font-size: 1.23em; color: #999ea6">webpack</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">前端</a> <a href="/tags/jenkins/" style="font-size: 1.1em; color: #999">jenkins</a> <a href="/tags/electron/" style="font-size: 1.13em; color: #999a9c">electron</a> <a href="/tags/oom/" style="font-size: 1.17em; color: #999c9f">oom</a> <a href="/tags/nginx/" style="font-size: 1.37em; color: #99a4b2">nginx</a> <a href="/tags/mybatis/" style="font-size: 1.1em; color: #999">mybatis</a> <a href="/tags/keepalive/" style="font-size: 1.1em; color: #999">keepalive</a> <a href="/tags/react/" style="font-size: 1.33em; color: #99a2af">react</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.1em; color: #999">语音合成</a> <a href="/tags/springboot/" style="font-size: 1.47em; color: #99a8bc">springboot</a> <a href="/tags/mongodb/" style="font-size: 1.1em; color: #999">mongodb</a> <a href="/tags/word/" style="font-size: 1.17em; color: #999c9f">word</a> <a href="/tags/%E5%9B%BD%E5%AF%86/" style="font-size: 1.1em; color: #999">国密</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 1.13em; color: #999a9c">反编译</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">安全</a> <a href="/tags/MinIO/" style="font-size: 1.1em; color: #999">MinIO</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/java/" style="font-size: 1.5em; color: #99a9bf">java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 1.17em; color: #999c9f">图床</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">41</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">93</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">194</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-08T10:42:30.496Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 树灼</div><div class="framework-info"></div><div class="footer_custom_text">Hi, 欢迎访问我的<a href="blog.chenshuzhuo.com">小破站!</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = data.hitokoto
+      }
+    })
+}
+typedJSFn.run(subtitleType)
+</script></div><div class="aplayer no-destroy" data-id="8197503748" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" > </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

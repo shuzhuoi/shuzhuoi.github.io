@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Untitled | 树灼的博客</title><meta name="author" content="树灼"><meta name="copyright" content="树灼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Untitled">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Untitled">
+<meta property="og:url" content="https://blog.chenshuzhuo.com/2024/05/05/java/oom/Untitled/index.html">
+<meta property="og:site_name" content="树灼的博客">
+<meta property="og:description" content="Untitled">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.chenshuzhuo.com/img/202303121511512.png">
+<meta property="article:published_time" content="2024-05-05T03:45:27.000Z">
+<meta property="article:modified_time" content="2024-09-05T11:35:20.000Z">
+<meta property="article:author" content="树灼">
+<meta property="article:tag" content="oom">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.chenshuzhuo.com/img/202303121511512.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenshuzhuo.com/2024/05/05/java/oom/Untitled/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 树灼","link":"链接: ","source":"来源: 树灼的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Untitled',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-05 19:35:20'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/me/me-log.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.chenshuzhuo.com/img/202303121511512.png')"><nav id="nav"><span id="blog-info"><a href="/" title="树灼的博客"><span class="site-name">树灼的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-05T03:45:27.000Z" title="发表于 2024-05-05 11:45:27">2024-05-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-05T11:35:20.000Z" title="更新于 2024-09-05 19:35:20">2024-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/java/">java</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/java/oom/">oom</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="查看-默认参数"><a href="#查看-默认参数" class="headerlink" title="查看 默认参数"></a>查看 默认参数</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\shuzhuo&gt;java -XX:+PrintFlagsFinal -version | findstr /i &quot;HeapSize PermSize ThreadStackSize&quot;</span><br><span class="line">     intx CompilerThreadStackSize                   = 0                                   &#123;pd product&#125;</span><br><span class="line">    uintx ErgoHeapSizeLimit                         = 0                                   &#123;product&#125;</span><br><span class="line">    uintx HeapSizePerGCThread                       = 87241520                            &#123;product&#125;</span><br><span class="line">    uintx InitialHeapSize                          := 268435456                           &#123;product&#125;</span><br><span class="line">    uintx LargePageHeapSizeThreshold                = 134217728                           &#123;product&#125;</span><br><span class="line">    uintx MaxHeapSize                              := 4263510016                          &#123;product&#125;</span><br><span class="line">     intx ThreadStackSize                           = 0                                   &#123;pd product&#125;</span><br><span class="line">     intx VMThreadStackSize                         = 0                                   &#123;pd product&#125;</span><br><span class="line">java version &quot;1.8.0_201&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_201-b09)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参数信息"><a href="#参数信息" class="headerlink" title="参数信息"></a>参数信息</h2><p>可以看到 </p>
+<p>InitialHeapSize&#x3D;256M</p>
+<p>MaxHeapSize&#x3D;4066M</p>
+<h3 id="XX：MaxHeapSize-size"><a href="#XX：MaxHeapSize-size" class="headerlink" title="-XX：MaxHeapSize &#x3D; size"></a>-XX：MaxHeapSize &#x3D; <em>size</em></h3><p>设置内存分配池的最大大小（以字节为单位）。该值必须是1024的倍数且大于2 MB。附加字母<code>k</code>或<code>K</code>表示千字节，<code>m</code>或<code>M</code>指示兆字节，<code>g</code>或<code>G</code>指示千兆字节。根据系统配置在运行时选择默认值。对于服务器部署，<code>-XX:InitialHeapSize</code>并<code>-XX:MaxHeapSize</code>经常设置为相同的值。请参阅<em>Java SE HotSpot虚拟机垃圾收集调整指南</em>中的“人体工程学”部分<code>http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/index.html</code>。</p>
+<p>以下示例显示如何使用各种单位将分配的内存的最大允许大小设置为80 MB：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-XX：MaxHeapSize = 83886080 </span><br><span class="line">-XX：MaxHeapSize = 81920k </span><br><span class="line">-XX：MaxHeapSize = 80m</span><br></pre></td></tr></table></figure>
+
+<p>在Oracle Solaris 7和Oracle Solaris 8 SPARC平台上，此值的上限约为4,000 MB减去间接费用金额。在Oracle Solaris 2.6和x86平台上，上限约为2,000 MB减去间接费用金额。在Linux平台上，上限约为2,000 MB减去间接费用金额。</p>
+<p>该<code>-XX:MaxHeapSize</code>选项相当于<code>-Xmx</code>。</p>
+<h3 id="XX：NewSize-size"><a href="#XX：NewSize-size" class="headerlink" title="-XX：NewSize &#x3D; size"></a>-XX：NewSize &#x3D; <em>size</em></h3><p>设置年轻代（托儿所）的堆的初始大小（以字节为单位）。附加字母<code>k</code>或<code>K</code>表示千字节，<code>m</code>或<code>M</code>指示兆字节，<code>g</code>或<code>G</code>指示千兆字节。</p>
+<p>堆的年轻代区域用于新对象。GC在该区域比在其他区域更频繁地进行。如果年轻一代的规模太小，那么将会执行大量的小型GC。如果尺寸太大，则只会执行完整的GC，这可能需要很长时间才能完成。Oracle建议您将年轻代的大小保持在整个堆大小的一半到四分之一之间。</p>
+<p>以下示例显示如何使用各种单位将年轻代的初始大小设置为256 MB：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-XX：NewSize = 256m </span><br><span class="line">-XX：NewSize = 262144k </span><br><span class="line">-XX：NewSize = 268435456</span><br></pre></td></tr></table></figure>
+
+<p>该<code>-XX:NewSize</code>选项相当于<code>-Xmn</code>。</p>
+<h3 id="XX：NewRatio-ratio"><a href="#XX：NewRatio-ratio" class="headerlink" title="-XX：NewRatio &#x3D; ratio"></a>-XX：NewRatio &#x3D; <em>ratio</em></h3><p>设置年轻和老一代尺寸之间的比率。默认情况下，此选项设置为2.以下示例显示如何将年轻&#x2F;旧比率设置为1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:NewRatio = 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="XX：InitialHeapSize-size"><a href="#XX：InitialHeapSize-size" class="headerlink" title="-XX：InitialHeapSize &#x3D; size"></a>-XX：InitialHeapSize &#x3D; <em>size</em></h3><p>设置内存分配池的初始大小（以字节为单位）。该值必须为0或1024的倍数且大于1 MB。附加字母<code>k</code>或<code>K</code>表示千字节，<code>m</code>或<code>M</code>指示兆字节，<code>g</code>或<code>G</code>指示千兆字节。根据系统配置在运行时选择默认值。请参阅<em>Java SE HotSpot虚拟机垃圾收集调整指南</em>中的“人体工程学”部分&#96;&#96;&#96;<a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/index.html%60%E3%80%82">http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/index.html`。</a></p>
+<p>以下示例显示如何使用各种单位将分配的内存大小设置为6 MB：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-XX：InitialHeapSize = 6291456 </span><br><span class="line">-XX：InitialHeapSize = 6144k </span><br><span class="line">-XX：InitialHeapSize = 6m</span><br></pre></td></tr></table></figure>
+
+<p>如果将此选项设置为0，则初始大小将设置为为旧代和年轻代分配的大小的总和。可以使用<code>-XX:NewSize</code>选项设置年轻代的堆大小。</p>
+<h2 id="内存监控的方法"><a href="#内存监控的方法" class="headerlink" title="内存监控的方法"></a>内存监控的方法</h2><h3 id="jmap-heap-pid"><a href="#jmap-heap-pid" class="headerlink" title="jmap -heap pid"></a>jmap -heap pid</h3><p>查看java 堆(heap)使用情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\shuzhuo&gt; jmap -heap 22628</span><br><span class="line">Attaching to process ID 22628, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 25.201-b09</span><br><span class="line"></span><br><span class="line">using thread-local object allocation.</span><br><span class="line">Parallel GC with 4 thread(s)    //GC 方式</span><br><span class="line"></span><br><span class="line">Heap Configuration: //堆内存初始化配置</span><br><span class="line">   MinHeapFreeRatio         = 0    //对应jvm启动参数-XX:MinHeapFreeRatio设置JVM堆最小空闲比率(default 40)</span><br><span class="line">   MaxHeapFreeRatio         = 100   //对应jvm启动参数 -XX:MaxHeapFreeRatio设置JVM堆最大空闲比率(default 70)</span><br><span class="line">   MaxHeapSize              = 4263510016 (4066.0MB)  //对应jvm启动参数-XX:MaxHeapSize=设置JVM堆的最大大小</span><br><span class="line">   NewSize                  = 89128960 (85.0MB)     //对应jvm启动参数-XX:NewSize=设置JVM堆的‘新生代’的默认大小</span><br><span class="line">   MaxNewSize               = 1420820480 (1355.0MB)   //对应jvm启动参数-XX:MaxNewSize=设置JVM堆的‘新生代’的最大大小</span><br><span class="line">   OldSize                  = 179306496 (171.0MB)    //对应jvm启动参数-XX:OldSize=:设置JVM堆的‘老生代’的大小</span><br><span class="line">   NewRatio                 = 2                       //对应jvm启动参数-XX:NewRatio=:‘新生代’和‘老生代’的大小比率</span><br><span class="line">   SurvivorRatio            = 8                       //对应jvm启动参数-XX:SurvivorRatio=设置年轻代中Eden区与Survivor区的大小比值</span><br><span class="line">   MetaspaceSize            = 21807104 (20.796875MB)</span><br><span class="line">   CompressedClassSpaceSize = 1073741824 (1024.0MB)</span><br><span class="line">   MaxMetaspaceSize         = 17592186044415 MB</span><br><span class="line">   G1HeapRegionSize         = 0 (0.0MB)</span><br><span class="line"></span><br><span class="line">Heap Usage:     //堆内存分步</span><br><span class="line">PS Young Generation</span><br><span class="line">Eden Space:      //Eden区内存分布</span><br><span class="line">   capacity = 532676608 (508.0MB)     //Eden区总容量</span><br><span class="line">   used     = 396765384 (378.3849563598633MB)   //Eden区已使用</span><br><span class="line">   free     = 135911224 (129.61504364013672MB)    //Eden区剩余容量</span><br><span class="line">   74.48522762989435% used</span><br><span class="line">From Space:     //其中一个Survivor区的内存分布</span><br><span class="line">   capacity = 330301440 (315.0MB)</span><br><span class="line">   used     = 46820536 (44.65154266357422MB)</span><br><span class="line">   free     = 283480904 (270.3484573364258MB)</span><br><span class="line">   14.17509290907118% used</span><br><span class="line">To Space:        //另一个Survivor区的内存分布</span><br><span class="line">   capacity = 353894400 (337.5MB)</span><br><span class="line">   used     = 0 (0.0MB)</span><br><span class="line">   free     = 353894400 (337.5MB)</span><br><span class="line">   0.0% used</span><br><span class="line">PS Old Generation        //当前的Old区内存分布</span><br><span class="line">   capacity = 2842689536 (2711.0MB)</span><br><span class="line">   used     = 1996192016 (1903.717056274414MB)</span><br><span class="line">   free     = 846497520 (807.2829437255859MB)</span><br><span class="line">   70.2219496965848% used</span><br><span class="line"></span><br><span class="line">63172 interned Strings occupying 7134664 bytes.</span><br><span class="line"></span><br><span class="line">C:\Users\shuzhuo&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="监控当前GC实时信息"><a href="#监控当前GC实时信息" class="headerlink" title="监控当前GC实时信息"></a>监控当前GC实时信息</h2><p><code>jstat -gcutil pid time(ms)</code> 命令监控当前 GC 实时信息</p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202111081121824.png" alt="image-20211108112107243"></p>
+<p>说一下每列所代表的含义。</p>
+<ul>
+<li>S0：年轻代中第一个 survivor（幸存区）使用比例</li>
+<li>S1：年轻代中第二个 survivor（幸存区）使用比例</li>
+<li>E：年轻代中 Eden（伊甸园区）使用比例</li>
+<li>O：老年代使用比例</li>
+<li>M：元数据区使用比例</li>
+<li>CCS：压缩使用比例（不太了解是干什么的）\color{red}{CCS：压缩使用比例（不太了解是干什么的）}CCS：压缩使用比例（不太了解是干什么的）</li>
+<li>YGC：从应用程序启动到采样时 Young GC 次数</li>
+<li>YGCT：从应用程序启动到采样时 Young GC 所用时间(s)</li>
+<li>FGC：从应用程序启动到采样时 Full GC 次数</li>
+<li>FGCT：从应用程序启动到采样时 Full GC 所用时间(s)</li>
+<li>GCT：从应用程序启动到采样时 GC 用的总时间(s)</li>
+</ul>
+<p>先不值该大一点，设置为8G</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xms4g -Xmx8g</span><br></pre></td></tr></table></figure>
+
+<p>调优参数1： 测试并还没有OOM</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError  -Xms4g -Xmx8g -XX:NewSize=4g -XX:ParallelGCThreads=2 -XX:NewRatio=2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\shuzhuo&gt;jmap -heap 31880</span><br><span class="line">Attaching to process ID 31880, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 25.201-b09</span><br><span class="line"></span><br><span class="line">using thread-local object allocation.</span><br><span class="line">Parallel GC with 2 thread(s)</span><br><span class="line"></span><br><span class="line">Heap Configuration:</span><br><span class="line">   MinHeapFreeRatio         = 0</span><br><span class="line">   MaxHeapFreeRatio         = 100</span><br><span class="line">   MaxHeapSize              = 8589934592 (8192.0MB)</span><br><span class="line">   NewSize                  = 4294443008 (4095.5MB)</span><br><span class="line">   MaxNewSize               = 4294967296 (4096.0MB)</span><br><span class="line">   OldSize                  = 524288 (0.5MB)</span><br><span class="line">   NewRatio                 = 2</span><br><span class="line">   SurvivorRatio            = 8</span><br><span class="line">   MetaspaceSize            = 21807104 (20.796875MB)</span><br><span class="line">   CompressedClassSpaceSize = 1073741824 (1024.0MB)</span><br><span class="line">   MaxMetaspaceSize         = 17592186044415 MB</span><br><span class="line">   G1HeapRegionSize         = 0 (0.0MB)</span><br><span class="line"></span><br><span class="line">Heap Usage:</span><br><span class="line">PS Young Generation</span><br><span class="line">Eden Space:</span><br><span class="line">   capacity = 3884449792 (3704.5MB)</span><br><span class="line">   used     = 1245030824 (1187.3539199829102MB)</span><br><span class="line">   free     = 2639418968 (2517.14608001709MB)</span><br><span class="line">   32.05166473162127% used</span><br><span class="line">From Space:</span><br><span class="line">   capacity = 207618048 (198.0MB)</span><br><span class="line">   used     = 122576784 (116.89833068847656MB)</span><br><span class="line">   free     = 85041264 (81.10166931152344MB)</span><br><span class="line">   59.03956095377604% used</span><br><span class="line">To Space:</span><br><span class="line">   capacity = 202375168 (193.0MB)</span><br><span class="line">   used     = 0 (0.0MB)</span><br><span class="line">   free     = 202375168 (193.0MB)</span><br><span class="line">   0.0% used</span><br><span class="line">PS Old Generation</span><br><span class="line">   capacity = 13107200 (12.5MB)</span><br><span class="line">   used     = 7642208 (7.288177490234375MB)</span><br><span class="line">   free     = 5464992 (5.211822509765625MB)</span><br><span class="line">   58.305419921875% used</span><br><span class="line"></span><br><span class="line">53416 interned Strings occupying 5513096 bytes.</span><br><span class="line"></span><br><span class="line">C:\Users\shuzhuo&gt;</span><br></pre></td></tr></table></figure>
+
+<p>调优参数1： 测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError  -Xms4g -Xmx4g -XX:NewSize=4g -XX:ParallelGCThreads=4 -XX:NewRatio=2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError  -Xms4g -Xmx4g -XX:NewSize=4g -XX:ParallelGCThreads=4</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>堆设置<br>-Xms:初始堆大小<br>-Xmx:最大堆大小<br>-Xmn:新生代大小<br>-XX:NewRatio:设置新生代和老年代的比值。<br>如：为3，表示年轻代与老年代比值为1：3</li>
+</ol>
+<h2 id="XX-SurvivorRatio-新生代中Eden区与两个Survivor区的比值。注意Survivor区有两个。-如：为3，表示Eden：Survivor-3：2，一个Survivor区占整个新生代的1-5-XX-MaxTenuringThreshold-设置转入老年代的存活次数。如果是0，则直接跳过新生代进入老年代-XX-PermSize、-XX-MaxPermSize-分别设置永久代最小大小与最大大小（Java8以前）-XX-MetaspaceSize、-XX-MaxMetaspaceSize-分别设置元空间最小大小与最大大小（Java8以后）"><a href="#XX-SurvivorRatio-新生代中Eden区与两个Survivor区的比值。注意Survivor区有两个。-如：为3，表示Eden：Survivor-3：2，一个Survivor区占整个新生代的1-5-XX-MaxTenuringThreshold-设置转入老年代的存活次数。如果是0，则直接跳过新生代进入老年代-XX-PermSize、-XX-MaxPermSize-分别设置永久代最小大小与最大大小（Java8以前）-XX-MetaspaceSize、-XX-MaxMetaspaceSize-分别设置元空间最小大小与最大大小（Java8以后）" class="headerlink" title="-XX:SurvivorRatio:新生代中Eden区与两个Survivor区的比值。注意Survivor区有两个。       如：为3，表示Eden：Survivor&#x3D;3：2，一个Survivor区占整个新生代的1&#x2F;5-XX:MaxTenuringThreshold:设置转入老年代的存活次数。如果是0，则直接跳过新生代进入老年代-XX:PermSize、-XX:MaxPermSize:分别设置永久代最小大小与最大大小（Java8以前）-XX:MetaspaceSize、-XX:MaxMetaspaceSize:分别设置元空间最小大小与最大大小（Java8以后）"></a>-XX:SurvivorRatio:新生代中Eden区与两个Survivor区的比值。注意Survivor区有两个。<br>       如：为3，表示Eden：Survivor&#x3D;3：2，一个Survivor区占整个新生代的1&#x2F;5<br>-XX:MaxTenuringThreshold:设置转入老年代的存活次数。如果是0，则直接跳过新生代进入老年代<br>-XX:PermSize、-XX:MaxPermSize:分别设置永久代最小大小与最大大小（Java8以前）<br>-XX:MetaspaceSize、-XX:MaxMetaspaceSize:分别设置元空间最小大小与最大大小（Java8以后）</h2><p>JVM优化之 -Xss -Xms -Xmx -Xmn 参数设置</p>
+<h1 id="导出报告"><a href="#导出报告" class="headerlink" title="导出报告"></a>导出报告</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\shuzhuo&gt;jps</span><br><span class="line">18688</span><br><span class="line">22628 MarvelClientV3Application</span><br><span class="line">21736 RemoteMavenServer</span><br><span class="line">30760 Launcher</span><br><span class="line">31144 Jps</span><br></pre></td></tr></table></figure>
+
+<p><code>jmap -dump:format=b,file=20211108001.hprod [pid]</code></p>
+<p>MAT 打开 报告</p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202111081058579.png" alt="image-20211108105815304"></p>
+<p><img src="https://cdn.chenshuzhuo.com/img/202111081133922.png" alt="image-20211108113307256"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.chenshuzhuo.com">树灼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.chenshuzhuo.com/2024/05/05/java/oom/Untitled/">https://blog.chenshuzhuo.com/2024/05/05/java/oom/Untitled/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.chenshuzhuo.com" target="_blank">树灼的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/oom/">oom</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.chenshuzhuo.com/img/202303121511512.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/05/java/oom/JVM%E4%BC%98%E5%8C%96%E4%B9%8B%20-Xss%20-Xms%20-Xmx%20-Xmn%20%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" title="JVM优化之 -Xss -Xms -Xmx -Xmn 参数设置"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JVM优化之 -Xss -Xms -Xmx -Xmn 参数设置</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/05/java/oom/%E5%BD%93%E5%89%8D%E6%B5%8B%E8%AF%95/" title="当前测试"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">当前测试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/05/java/oom/JVM%E4%BC%98%E5%8C%96%E4%B9%8B%20-Xss%20-Xms%20-Xmx%20-Xmn%20%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/" title="JVM优化之 -Xss -Xms -Xmx -Xmn 参数设置"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">JVM优化之 -Xss -Xms -Xmx -Xmn 参数设置</div></div></a></div><div><a href="/2024/05/05/java/oom/%E5%BD%93%E5%89%8D%E6%B5%8B%E8%AF%95/" title="当前测试"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">当前测试</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/me/me-log.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">树灼</div><div class="author-info__description">熟悉java的拼写</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><marquee>欢迎访问个人小破站</marquee> <img src="https://cdn.chenshuzhuo.com/img/back.jpg"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">查看 默认参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.</span> <span class="toc-text">参数信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XX%EF%BC%9AMaxHeapSize-size"><span class="toc-number">1.1.1.</span> <span class="toc-text">-XX：MaxHeapSize &#x3D; size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XX%EF%BC%9ANewSize-size"><span class="toc-number">1.1.2.</span> <span class="toc-text">-XX：NewSize &#x3D; size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XX%EF%BC%9ANewRatio-ratio"><span class="toc-number">1.1.3.</span> <span class="toc-text">-XX：NewRatio &#x3D; ratio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XX%EF%BC%9AInitialHeapSize-size"><span class="toc-number">1.1.4.</span> <span class="toc-text">-XX：InitialHeapSize &#x3D; size</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">内存监控的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jmap-heap-pid"><span class="toc-number">1.2.1.</span> <span class="toc-text">jmap -heap pid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E5%BD%93%E5%89%8DGC%E5%AE%9E%E6%97%B6%E4%BF%A1%E6%81%AF"><span class="toc-number">1.3.</span> <span class="toc-text">监控当前GC实时信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XX-SurvivorRatio-%E6%96%B0%E7%94%9F%E4%BB%A3%E4%B8%ADEden%E5%8C%BA%E4%B8%8E%E4%B8%A4%E4%B8%AASurvivor%E5%8C%BA%E7%9A%84%E6%AF%94%E5%80%BC%E3%80%82%E6%B3%A8%E6%84%8FSurvivor%E5%8C%BA%E6%9C%89%E4%B8%A4%E4%B8%AA%E3%80%82-%E5%A6%82%EF%BC%9A%E4%B8%BA3%EF%BC%8C%E8%A1%A8%E7%A4%BAEden%EF%BC%9ASurvivor-3%EF%BC%9A2%EF%BC%8C%E4%B8%80%E4%B8%AASurvivor%E5%8C%BA%E5%8D%A0%E6%95%B4%E4%B8%AA%E6%96%B0%E7%94%9F%E4%BB%A3%E7%9A%841-5-XX-MaxTenuringThreshold-%E8%AE%BE%E7%BD%AE%E8%BD%AC%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3%E7%9A%84%E5%AD%98%E6%B4%BB%E6%AC%A1%E6%95%B0%E3%80%82%E5%A6%82%E6%9E%9C%E6%98%AF0%EF%BC%8C%E5%88%99%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BF%87%E6%96%B0%E7%94%9F%E4%BB%A3%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3-XX-PermSize%E3%80%81-XX-MaxPermSize-%E5%88%86%E5%88%AB%E8%AE%BE%E7%BD%AE%E6%B0%B8%E4%B9%85%E4%BB%A3%E6%9C%80%E5%B0%8F%E5%A4%A7%E5%B0%8F%E4%B8%8E%E6%9C%80%E5%A4%A7%E5%A4%A7%E5%B0%8F%EF%BC%88Java8%E4%BB%A5%E5%89%8D%EF%BC%89-XX-MetaspaceSize%E3%80%81-XX-MaxMetaspaceSize-%E5%88%86%E5%88%AB%E8%AE%BE%E7%BD%AE%E5%85%83%E7%A9%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%A4%A7%E5%B0%8F%E4%B8%8E%E6%9C%80%E5%A4%A7%E5%A4%A7%E5%B0%8F%EF%BC%88Java8%E4%BB%A5%E5%90%8E%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">-XX:SurvivorRatio:新生代中Eden区与两个Survivor区的比值。注意Survivor区有两个。       如：为3，表示Eden：Survivor&#x3D;3：2，一个Survivor区占整个新生代的1&#x2F;5-XX:MaxTenuringThreshold:设置转入老年代的存活次数。如果是0，则直接跳过新生代进入老年代-XX:PermSize、-XX:MaxPermSize:分别设置永久代最小大小与最大大小（Java8以前）-XX:MetaspaceSize、-XX:MaxMetaspaceSize:分别设置元空间最小大小与最大大小（Java8以后）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E6%8A%A5%E5%91%8A"><span class="toc-number">2.</span> <span class="toc-text">导出报告</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo java维护描述yaml"/></a><div class="content"><a class="title" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml">hexo java维护描述yaml</a><time datetime="2024-09-08T10:13:55.000Z" title="发表于 2024-09-08 18:13:55">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VLOOK-Document-Template"/></a><div class="content"><a class="title" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template">VLOOK-Document-Template</a><time datetime="2024-09-08T07:53:24.000Z" title="发表于 2024-09-08 15:53:24">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署多前端"/></a><div class="content"><a class="title" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端">nginx部署多前端</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postgresql 创建用户权限"/></a><div class="content"><a class="title" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限">postgresql 创建用户权限</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 容器日志文件过大"/></a><div class="content"><a class="title" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大">Docker 容器日志文件过大</a><time datetime="2024-09-05T11:22:04.000Z" title="发表于 2024-09-05 19:22:04">2024-09-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 树灼</div><div class="framework-info"></div><div class="footer_custom_text">Hi, 欢迎访问我的<a href="blog.chenshuzhuo.com">小破站!</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8197503748" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" > </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

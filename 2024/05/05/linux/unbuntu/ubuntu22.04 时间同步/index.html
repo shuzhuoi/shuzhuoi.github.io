@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ubuntu22.04 时间同步 | 树灼的博客</title><meta name="author" content="树灼"><meta name="copyright" content="树灼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ubuntu22.04 时间同步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu22.04 时间同步">
+<meta property="og:url" content="https://blog.chenshuzhuo.com/2024/05/05/linux/unbuntu/ubuntu22.04%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/index.html">
+<meta property="og:site_name" content="树灼的博客">
+<meta property="og:description" content="ubuntu22.04 时间同步">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.chenshuzhuo.com/img/202303121511512.png">
+<meta property="article:published_time" content="2024-05-05T03:45:27.000Z">
+<meta property="article:modified_time" content="2024-09-05T11:35:20.000Z">
+<meta property="article:author" content="树灼">
+<meta property="article:tag" content="unbuntu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.chenshuzhuo.com/img/202303121511512.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenshuzhuo.com/2024/05/05/linux/unbuntu/ubuntu22.04%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 树灼","link":"链接: ","source":"来源: 树灼的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ubuntu22.04 时间同步',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-05 19:35:20'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/me/me-log.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.chenshuzhuo.com/img/202303121511512.png')"><nav id="nav"><span id="blog-info"><a href="/" title="树灼的博客"><span class="site-name">树灼的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ubuntu22.04 时间同步</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-05T03:45:27.000Z" title="发表于 2024-05-05 11:45:27">2024-05-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-05T11:35:20.000Z" title="更新于 2024-09-05 19:35:20">2024-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/">linux</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/unbuntu/">unbuntu</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="UBUNTU时间同步"><a href="#UBUNTU时间同步" class="headerlink" title="UBUNTU时间同步"></a>UBUNTU时间同步</h1><p>从UBUNTU16.04开始，就开始使用timedatectl&#x2F;timesyncd服务进行<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5&spm=1001.2101.3001.7020">时间同步</a>，而不是常用的ntpdate&#x2F;ntp。如果安装了chrony，那么timedatectl将会让位于chrony，避免两个同步服务出现竞争，这也同样适用于ntpd。</p>
+<p>​    <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ntpdate&spm=1001.2101.3001.7020">ntpdate</a>已被timedatectl或chrony抛弃，因此默认不会被安装。timesyncd用于时间同步，chrony则用于更复杂的情况。</p>
+<p>​    临时一次同步：chronyd −q</p>
+<p>​    临时一次时间检查，不设置时间：chronyd −Q</p>
+<p>设置时间同步 及修改系统时间 时区为上海（Asia&#x2F;Shanghai）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-time &quot;YYYY-MM-DD HH:MM:SS&quot;</span><br><span class="line">timedatectl set-time &quot;2023-11-07 10:08:00&quot;</span><br><span class="line">timedatectl set-time &quot;2024-04-12 12:00:00&quot;</span><br><span class="line">date -s &quot;20240412 12:00:00&quot;</span><br><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">设置时间，sudo date -s &quot;20210511 09:11:11&quot;，时间根据参照设置时当前时间</span><br><span class="line"></span><br><span class="line">4、执行命令 sudo hwclock --systohc 将修改写入cmos硬件时钟</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置timedatectl和timesyncd"><a href="#配置timedatectl和timesyncd" class="headerlink" title="配置timedatectl和timesyncd"></a>配置timedatectl和timesyncd</h2><h3 id="1-1-查看timesyncd的状态"><a href="#1-1-查看timesyncd的状态" class="headerlink" title="1.1.查看timesyncd的状态"></a>1.1.查看timesyncd的状态</h3><p>查看当前时间状态及timedatectl&#x2F;timesyncd的配置信息：timedatectl status</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@aaa:~<span class="comment"># timedatectl status</span></span><br><span class="line">               Local time: 三 2023-11-01 14:32:10 CST</span><br><span class="line">           Universal time: 三 2023-11-01 06:32:10 UTC</span><br><span class="line">                 RTC time: 三 2023-11-01 06:32:11</span><br><span class="line">                Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">System clock synchronized: <span class="built_in">yes</span></span><br><span class="line">              NTP service: active</span><br><span class="line">          RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no</span><br></pre></td></tr></table></figure>
+
+<p>查看timesyncd的运行情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status systemd-timesyncd</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-配置同步服务和选项"><a href="#1-2-配置同步服务和选项" class="headerlink" title="1.2.配置同步服务和选项"></a>1.2.配置同步服务和选项</h3><p>配置文件可以出现在以下位置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/timesyncd.conf</span><br><span class="line">vim  /etc/systemd/timesyncd.conf.d/*.conf</span><br><span class="line">vim /run/systemd/timesyncd.conf.d/*.conf</span><br><span class="line">vim /usr/lib/systemd/timesyncd.conf.d/*.conf</span><br></pre></td></tr></table></figure>
+
+<p>配置文件内容说明（man timesyncd.conf）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NTP=</span><br><span class="line">    用空格分隔的NTP服务器主机名或IP地址列表。systemd-timesyncd将依次连接配置好NTP服务列表，直到找到一个有效的，默认为空</span><br><span class="line">FallbackNTP=</span><br><span class="line">    用空格分隔的NTP服务器主机名或IP地址列表，用作备用NTP服务器。从systemd-network.service获得的NTP服务器优先于与通过NTP=上面设置的服务器</span><br><span class="line">RootDistanceMaxSec=</span><br><span class="line">    最大可接收时钟偏差，默认为5秒。</span><br><span class="line">PollIntervalMinSec=, PollIntervalMaxSec=</span><br><span class="line">    NTP消息的最小和最大轮询间隔（单位秒)。PollIntervalMinSec不能小于16秒，PollIntervalMaxSec必须大于PollIntervalMinSec，PollIntervalMinSec默认为32秒，PollIntervalMaxSec默认为2048秒</span><br></pre></td></tr></table></figure>
+
+<p>重启</p>
+<p>vim &#x2F;etc&#x2F;systemd&#x2F;timesyncd.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NTP=ntp.aliyun.com</span><br><span class="line">FallbackNTP=ntp1.aliyun.com,ntp2.aliyun.com,ntp3.aliyun.com</span><br><span class="line">RootDistanceMaxSec=5</span><br><span class="line">PollIntervalMinSec=32</span><br><span class="line">PollIntervalMaxSec=2048</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-timesyncd</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-3-一些公用的NTP服务器"><a href="#1-3-一些公用的NTP服务器" class="headerlink" title="1.3.一些公用的NTP服务器"></a>1.3.一些公用的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=NTP&spm=1001.2101.3001.7020">NTP</a>服务器</h3><h4 id="使用以前请先ping相应的域名查看网络是否可达，和相应的访问速度"><a href="#使用以前请先ping相应的域名查看网络是否可达，和相应的访问速度" class="headerlink" title="使用以前请先ping相应的域名查看网络是否可达，和相应的访问速度"></a>使用以前请先ping相应的域名查看网络是否可达，和相应的访问速度</h4><h4 id="1-3-1-中国NTP时间源服务器"><a href="#1-3-1-中国NTP时间源服务器" class="headerlink" title="1.3.1.中国NTP时间源服务器"></a>1.3.1.中国NTP时间源服务器</h4><blockquote>
+<p>ntp.ntsc.ac.cn 　　中国国家授时中心<br>cn.ntp.org.cn 　　 中国授时</p>
+</blockquote>
+<h4 id="1-3-2-阿里云提供的NTP服务"><a href="#1-3-2-阿里云提供的NTP服务" class="headerlink" title="1.3.2.阿里云提供的NTP服务"></a>1.3.2.阿里云提供的NTP服务</h4><blockquote>
+<p>ntp1.aliyun.com<br>ntp2.aliyun.com<br>ntp3.aliyun.com<br>ntp4.aliyun.com<br>ntp5.aliyun.com<br>ntp6.aliyun.com<br>ntp7.aliyun.com</p>
+</blockquote>
+<h4 id="1-3-3-大学提供的NTP服务（国内）"><a href="#1-3-3-大学提供的NTP服务（国内）" class="headerlink" title="1.3.3.大学提供的NTP服务（国内）"></a>1.3.3.大学提供的NTP服务（国内）</h4><blockquote>
+<p>s1a.time.edu.cn 　　北京邮电大学<br>s1b.time.edu.cn 　　清华大学<br>s1c.time.edu.cn 　　北京大学<br>s1d.time.edu.cn 　　东南大学<br>s1e.time.edu.cn 　　清华大学<br>s2a.time.edu.cn 　　清华大学<br>s2b.time.edu.cn 　　清华大学<br>s2c.time.edu.cn 　　北京邮电大学<br>s2d.time.edu.cn 　　西南地区网络中心<br>s2e.time.edu.cn 　　西北地区网络中心<br>s2f.time.edu.cn 　　 东北地区网络中心<br>s2g.time.edu.cn 　　华东南地区网络中心<br>s2h.time.edu.cn 　　四川大学网络管理中心<br>s2j.time.edu.cn 　　 大连理工大学网络中心<br>s2k.time.edu.cn 　　CERNET桂林主节点<br>s2m.time.edu.cn 　  北京大学</p>
+</blockquote>
+<h4 id="1-3-4-苹果提供的NTP服务（国外）"><a href="#1-3-4-苹果提供的NTP服务（国外）" class="headerlink" title="1.3.4.苹果提供的NTP服务（国外）"></a>1.3.4.苹果提供的NTP服务（国外）</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://time1.apple.com/">http://time1.apple.com</a><br><a target="_blank" rel="noopener" href="http://time2.apple.com/">http://time2.apple.com</a><br><a target="_blank" rel="noopener" href="http://time3.apple.com/">http://time3.apple.com</a><br><a target="_blank" rel="noopener" href="http://time4.apple.com/">http://time4.apple.com</a><br><a target="_blank" rel="noopener" href="http://time5.apple.com/">http://time5.apple.com</a><br><a target="_blank" rel="noopener" href="http://time6.apple.com/">http://time6.apple.com</a><br><a target="_blank" rel="noopener" href="http://time7.apple.com/">http://time7.apple.com</a></p>
+</blockquote>
+<h4 id="1-3-5-谷歌提供的NTP服务（国外）"><a href="#1-3-5-谷歌提供的NTP服务（国外）" class="headerlink" title="1.3.5.谷歌提供的NTP服务（国外）"></a>1.3.5.谷歌提供的NTP服务（国外）</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://time1.google.com/">http://time1.google.com</a><br><a target="_blank" rel="noopener" href="http://time2.google.com/">http://time2.google.com</a><br><a target="_blank" rel="noopener" href="http://time3.google.com/">http://time3.google.com</a><br><a target="_blank" rel="noopener" href="http://time4.google.com/">http://time4.google.com</a></p>
+</blockquote>
+<h4 id="另外推荐一个官方的站点："><a href="#另外推荐一个官方的站点：" class="headerlink" title="另外推荐一个官方的站点："></a>另外推荐一个官方的站点：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.ntp.org.cn/pool</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-时钟服务器"><a href="#2-时钟服务器" class="headerlink" title="2.时钟服务器"></a>2.时钟服务器</h2><h3 id="2-1-安装服务"><a href="#2-1-安装服务" class="headerlink" title="2.1.安装服务"></a>2.1.安装服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt  install  chrony</span><br></pre></td></tr></table></figure>
+
+<p>它将安装两个bin文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chronyd-同步守护进程，并提供NTP服务</span><br><span class="line">chronyc- chrony守护进程的命令行接口</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-配置服务"><a href="#2-2-配置服务" class="headerlink" title="2.2.配置服务"></a>2.2.配置服务</h3><p>配置文件为：&#x2F;etc&#x2F;chrony&#x2F;chrony.conf（man chrony.conf）。默认配置了以下服务:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pool 0.ubuntu.pool.ntp.org iburst</span><br><span class="line">pool 1.ubuntu.pool.ntp.org iburst</span><br><span class="line">pool 2.ubuntu.pool.ntp.org iburst</span><br><span class="line">pool 3.ubuntu.pool.ntp.org iburst</span><br></pre></td></tr></table></figure>
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.chenshuzhuo.com">树灼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.chenshuzhuo.com/2024/05/05/linux/unbuntu/ubuntu22.04%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/">https://blog.chenshuzhuo.com/2024/05/05/linux/unbuntu/ubuntu22.04%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.chenshuzhuo.com" target="_blank">树灼的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/unbuntu/">unbuntu</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.chenshuzhuo.com/img/202303121511512.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/05/linux/unbuntu/ubuntu%E5%A6%82%E4%BD%95%E5%AF%B9%E5%A4%96%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/" title="ubuntu如何对外开放端口"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ubuntu如何对外开放端口</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/05/%E5%89%8D%E7%AB%AF/electron/electron-vue%20ERROR%20in%20Template%20execution%20failed%20ReferenceError%20process%20is%20not%20defined%20%E6%AD%A3%E7%A1%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="electron-vue ERROR in Template execution failed ReferenceError process is not defined 正确解决方法"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">electron-vue ERROR in Template execution failed ReferenceError process is not defined 正确解决方法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/05/linux/unbuntu/Ubuntu22.04%E5%AE%89%E8%A3%85Docker/" title="Ubuntu22.04安装Docker"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">Ubuntu22.04安装Docker</div></div></a></div><div><a href="/2024/05/05/linux/unbuntu/Ubuntu%E5%AE%89%E8%A3%85ssh/" title="Ubuntu安装ssh"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">Ubuntu安装ssh</div></div></a></div><div><a href="/2024/05/05/linux/unbuntu/ubuntu22.04%20jdk8%E5%AE%89%E8%A3%85/" title="ubuntu22.04 jdk8安装"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">ubuntu22.04 jdk8安装</div></div></a></div><div><a href="/2024/05/05/linux/unbuntu/Untitled/" title="Untitled"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">Untitled</div></div></a></div><div><a href="/2024/09/05/linux/unbuntu/history%20%E5%A2%9E%E5%BC%BA/" title="history 增强"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-05</div><div class="title">history 增强</div></div></a></div><div><a href="/2024/05/05/linux/unbuntu/ubuntu22.04%20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/" title="ubuntu22.04 开机自启"><img class="cover" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">ubuntu22.04 开机自启</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/me/me-log.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">树灼</div><div class="author-info__description">熟悉java的拼写</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><marquee>欢迎访问个人小破站</marquee> <img src="https://cdn.chenshuzhuo.com/img/back.jpg"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UBUNTU%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">UBUNTU时间同步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEtimedatectl%E5%92%8Ctimesyncd"><span class="toc-number">1.1.</span> <span class="toc-text">配置timedatectl和timesyncd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%9F%A5%E7%9C%8Btimesyncd%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.查看timesyncd的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%85%8D%E7%BD%AE%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%92%8C%E9%80%89%E9%A1%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2.配置同步服务和选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%B8%80%E4%BA%9B%E5%85%AC%E7%94%A8%E7%9A%84NTP%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3.一些公用的NTP服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%89%8D%E8%AF%B7%E5%85%88ping%E7%9B%B8%E5%BA%94%E7%9A%84%E5%9F%9F%E5%90%8D%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E6%98%AF%E5%90%A6%E5%8F%AF%E8%BE%BE%EF%BC%8C%E5%92%8C%E7%9B%B8%E5%BA%94%E7%9A%84%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">使用以前请先ping相应的域名查看网络是否可达，和相应的访问速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E4%B8%AD%E5%9B%BDNTP%E6%97%B6%E9%97%B4%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">1.3.1.中国NTP时间源服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8F%90%E4%BE%9B%E7%9A%84NTP%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">1.3.2.阿里云提供的NTP服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-%E5%A4%A7%E5%AD%A6%E6%8F%90%E4%BE%9B%E7%9A%84NTP%E6%9C%8D%E5%8A%A1%EF%BC%88%E5%9B%BD%E5%86%85%EF%BC%89"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">1.3.3.大学提供的NTP服务（国内）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-4-%E8%8B%B9%E6%9E%9C%E6%8F%90%E4%BE%9B%E7%9A%84NTP%E6%9C%8D%E5%8A%A1%EF%BC%88%E5%9B%BD%E5%A4%96%EF%BC%89"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">1.3.4.苹果提供的NTP服务（国外）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-5-%E8%B0%B7%E6%AD%8C%E6%8F%90%E4%BE%9B%E7%9A%84NTP%E6%9C%8D%E5%8A%A1%EF%BC%88%E5%9B%BD%E5%A4%96%EF%BC%89"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">1.3.5.谷歌提供的NTP服务（国外）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%A6%E5%A4%96%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%AA%E5%AE%98%E6%96%B9%E7%9A%84%E7%AB%99%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.3.7.</span> <span class="toc-text">另外推荐一个官方的站点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%97%B6%E9%92%9F%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">2.时钟服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1.安装服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2.配置服务</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo java维护描述yaml"/></a><div class="content"><a class="title" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml">hexo java维护描述yaml</a><time datetime="2024-09-08T10:13:55.000Z" title="发表于 2024-09-08 18:13:55">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VLOOK-Document-Template"/></a><div class="content"><a class="title" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template">VLOOK-Document-Template</a><time datetime="2024-09-08T07:53:24.000Z" title="发表于 2024-09-08 15:53:24">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署多前端"/></a><div class="content"><a class="title" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端">nginx部署多前端</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postgresql 创建用户权限"/></a><div class="content"><a class="title" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限">postgresql 创建用户权限</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 容器日志文件过大"/></a><div class="content"><a class="title" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大">Docker 容器日志文件过大</a><time datetime="2024-09-05T11:22:04.000Z" title="发表于 2024-09-05 19:22:04">2024-09-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 树灼</div><div class="framework-info"></div><div class="footer_custom_text">Hi, 欢迎访问我的<a href="blog.chenshuzhuo.com">小破站!</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8197503748" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" > </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

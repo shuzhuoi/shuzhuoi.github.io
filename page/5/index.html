@@ -1,0 +1,423 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>树灼的博客</title><meta name="author" content="树灼"><meta name="copyright" content="树灼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="熟悉java的拼写">
+<meta property="og:type" content="website">
+<meta property="og:title" content="树灼的博客">
+<meta property="og:url" content="https://blog.chenshuzhuo.com/page/5/index.html">
+<meta property="og:site_name" content="树灼的博客">
+<meta property="og:description" content="熟悉java的拼写">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.chenshuzhuo.com/me/me-log.png">
+<meta property="article:author" content="树灼">
+<meta property="article:tag" content="树灼">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.chenshuzhuo.com/me/me-log.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenshuzhuo.com/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 树灼","link":"链接: ","source":"来源: 树灼的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '树灼的博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-08 18:42:32'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/me/me-log.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.chenshuzhuo.com/img/202303121427036.png')"><nav id="nav"><span id="blog-info"><a href="/" title="树灼的博客"><span class="site-name">树灼的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">树灼的博客</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/09/05/linux/unbuntu/%E5%A2%9E%E5%8A%A0%E7%94%A8%E6%88%B7%E7%BB%84%E5%88%B0docker/" title="增加用户组到docker"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="增加用户组到docker"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/05/linux/unbuntu/%E5%A2%9E%E5%8A%A0%E7%94%A8%E6%88%B7%E7%BB%84%E5%88%B0docker/" title="增加用户组到docker">增加用户组到docker</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-05T08:34:59.000Z" title="发表于 2024-09-05 16:34:59">2024-09-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/unbuntu/">unbuntu</a></span></div><div class="content">在Ubuntu 22.04上，如果你使用 sudo 安装了 Docker，默认情况下，Docker 用户组（通常是 docker 组）并不会自动分配给 user1 用户。为了让 user1 用户能够在不使用 sudo 的情况下运行 Docker，你需要将 user1 用户添加到 docker 用户组中。
+你可以按照以下步骤操作：
+
+创建 Docker 用户组（如果不存在）：
+通常 Docker 安装时会自动创建一个名为 docker 的用户组，但如果你确认没有这个组，你可以手动创建：
+1sudo groupadd docker
+
+将 user1 用户添加到 docker 组：
+使用以下命令将 user1 用户添加到 docker 组：
+1sudo usermod -aG docker user1
+
+其中，-aG 参数表示将用户追加到指定组中，而不影响其原有的组。
+
+注销并重新登录 user1 用户：
+用户需要注销并重新登录，或者通过以下命令重新加载组配置，才能使组变更生效：
+1newgrp docker
+
+验证：
+你可以通过以下命令验证 user1 用户是否已经可以不使用 sudo 命 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/17/linux/esxi/%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/" title="磁盘阵列"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="磁盘阵列"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/linux/esxi/%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/" title="磁盘阵列">磁盘阵列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T10:58:07.000Z" title="发表于 2024-08-17 18:58:07">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/esxi/">esxi</a></span></div><div class="content">raid0-7 公认的
+raid0  多块磁盘分片保存，速度飞快，最不安全， 坏了一块全部gg，越多磁盘读取写入越快
+raid1  镜像， 镜像盘，至少2块，最安全的，空间利用率和速度是最低的，安全和速度成反比
+raid2 raid0 +纠错码 
+raid3 ,至少要3块，raid0+ 恢复码  容灾能力1块， 以bit 为单位分片存储
+raid4 , 至少3块，raid0+恢复码 ，容灾能力1块，以块 为单位分片存储
+raid5  ,恢复码 每块都存一点
+有极低概率会遇到不可恢复性错误，大概处理12TB 会出现一个URE,当raid5 坏了一块硬盘，正在重建raid 阵列的时候，只要出现一次URE错误，就会导致raid5认为数据有问题，需要重新开始建立阵列，多次重建会导致硬盘长时间高负荷运转，如果硬盘是同一时间买的，一块硬盘挂了，其他硬盘健康状态也好不到哪里去，非常容易导致更多的硬盘损坏，raid5只允许坏一块硬盘，重建的过程中再挂掉一块硬盘，那数据就就不回来了，重建阵列成功率比较低
+
+raid6 ,恢复码2组，建议使用
+raid10
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/17/ai/Ollama-%E7%9B%91%E5%90%AC%E6%9C%AC%E5%9C%B0IP%E4%B8%8E%E7%AB%AF%E5%8F%A3/" title="Ollama-监听本地IP与端口"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ollama-监听本地IP与端口"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/ai/Ollama-%E7%9B%91%E5%90%AC%E6%9C%AC%E5%9C%B0IP%E4%B8%8E%E7%AB%AF%E5%8F%A3/" title="Ollama-监听本地IP与端口">Ollama-监听本地IP与端口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ai/">ai</a></span></div><div class="content">修改ollama配置使其可以监听0.0.0.0和修改端口，可以外网访问
+修改文件1vim /etc/systemd/system/ollama.service
+
+增加一行
+12[Service]Environment=&quot;OLLAMA_HOST=0.0.0.0:11434&quot;
+
+
+
+重现加载12345sudo systemctl daemon-reloadsudo systemctl restart ollamasudo systemctl status ollama
+
+查看日志1journalctl -u ollama.service
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/17/ai/openui/" title="openui"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="openui"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/ai/openui/" title="openui">openui</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ai/">ai</a></span></div><div class="content">1docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
+
+
+
+
+anythingllm安装github 文档:https://github.com/Mintplex-Labs/anything-llm
+前置
+123export STORAGE_LOCATION=$HOME/anythingllm &amp;&amp; \mkdir -p $STORAGE_LOCATION &amp;&amp; \touch &quot;$STORAGE_LOCATION/.env&quot; &amp;&amp; \
+
+
+
+
+查看用户的uid 和gid
+12@ai:~/docker# iduid=0(root) gid=0(root) groups=0(root),998(ollama)
+
+非默认用户不是100 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/17/ai/esxi7%20tslaP40%E7%9B%B4%E9%80%9A%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="esxi7 tslaP40直通安装指南"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="esxi7 tslaP40直通安装指南"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/ai/esxi7%20tslaP40%E7%9B%B4%E9%80%9A%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="esxi7 tslaP40直通安装指南">esxi7 tslaP40直通安装指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ai/">ai</a></span></div><div class="content">安装系统Ubuntu22.04 LTS
+设置上海市区1timedatectl set-timezone Asia/Shanghai
+
+查看系统版本1lsb_release -a
+
+查看python版本1python3 --version
+
+设置ipvi /etc/netplan/01-netcfg.yaml
+12345678910111213141516# This is the network config written by &#x27;subiquity&#x27;network:  ethernets:    ens160:      addresses:      - 192.168.60.86/24      nameservers:        addresses:        - 202.96.128.68        - 8.8.8.8        search:        - ai01      routes:      - to: default        via: 192.168.60.253  version: 2
+
+生效netplan ap ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/17/ai/nvidia%E6%98%BE%E5%8D%A1%E5%AE%9E%E6%97%B6%E6%9F%A5%E7%9C%8B%20GPU%20%E7%9A%84%E5%8D%A0%E7%94%A8/" title="nvidia显卡实时查看 GPU 的占用"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nvidia显卡实时查看 GPU 的占用"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/ai/nvidia%E6%98%BE%E5%8D%A1%E5%AE%9E%E6%97%B6%E6%9F%A5%E7%9C%8B%20GPU%20%E7%9A%84%E5%8D%A0%E7%94%A8/" title="nvidia显卡实时查看 GPU 的占用">nvidia显卡实时查看 GPU 的占用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ai/">ai</a></span></div><div class="content">nvidia-smi 可以实时查看 GPU 的占用情况。要实时监控 GPU 使用情况，你可以使用以下几种方法：
+1. 直接使用 nvidia-smi 命令你可以使用以下命令，每隔一秒刷新一次显示：
+1watch -n 1 nvidia-smi
+
+这将每秒钟刷新一次 nvidia-smi 输出，让你实时看到 GPU 的使用情况。
+2. 使用 nvidia-smi 的查询模式nvidia-smi 也支持查询模式，可以监控特定的指标。以下是一个示例，监控 GPU 的利用率、显存使用情况和温度：
+1nvidia-smi --query-gpu=timestamp,name,pci.bus_id,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 1
+
+这条命令每秒钟输出一次 GPU 的使用情况，并以 CSV 格式显示。
+3. 使用 nvidia-smi dmon 模式nvidia-smi 还提供了一个守护进程监控模式，可以实时监控 GPU  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/17/docker/alist%20plus%E5%A2%9E%E5%8A%A0%E5%AF%86%E7%A0%81/" title="alist plus增加密码"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="alist plus增加密码"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/docker/alist%20plus%E5%A2%9E%E5%8A%A0%E5%AF%86%E7%A0%81/" title="alist plus增加密码">alist plus增加密码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">主要修改：
+
+修改容器默认的时区为中国上海
+运行镜像可以直接指定密码
+发布版本和官方版本对应
+
+增加 -e PASSWORD=你的密码
+docker-cli12docker run -d --restart=always /etc/alist:/opt/alist/data -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 -e PASSWORD=123456 --name=&quot;alist&quot; xhofe/alist:latest
+
+
+
+docker-compose1234567891011121314version: &#x27;3.3&#x27;services:  alist:    image: &#x27;shuzhuoi/alist:latest&#x27;    container_name: alist    volumes:      - &#x27;./etc/alist:/opt/alist/data&#x27;    ports:      - &#x27;5244:5244&#x27;    envir ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/17/docker/%E4%BD%93%E7%A7%AF%E4%BC%98%E5%8C%96/" title="体积优化"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="体积优化"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/docker/%E4%BD%93%E7%A7%AF%E4%BC%98%E5%8C%96/" title="体积优化">体积优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">在 Docker 中，每个指令（如 COPY、RUN、ADD）都会创建一个新的镜像层。因此，尽可能合并这些指令可以减少镜像的层数，从而减少最终镜像的大小。
+复制文件和创建镜像层
+每个 COPY 指令创建一个新的层：
+
+如果你在 Dockerfile 中写多个 
+1COPY
+
+ 指令，每个指令都会创建一个新的镜像层。例如：
+123COPY file1.txt /app/file1.txtCOPY file2.txt /app/file2.txtCOPY folder1 /app/folder1
+
+上述代码将创建三个独立的镜像层。
+
+
+
+合并 COPY 指令减少层数：
+
+你可以将多个文件和目录一次性复制到一个临时目录，然后在一个 
+1RUN
+
+ 指令中将它们移动到最终位置，并进行清理。这样做可以减少镜像层数。例如：
+123COPY file1.txt /tmp/file1.txtCOPY file2.txt /tmp/file2.txtCOPY folder1 /tmp/folder1
+
+
+
+合并操作减少镜像体积为了减少镜像体积，可以在一个 RUN 指令中完成所有操作，包括复制、移动文件和 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/17/docker/%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" title="设置代理"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设置代理"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/docker/%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" title="设置代理">设置代理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">配置 Docker 守护进程使用代理
+创建或修改 /etc/systemd/system/docker.service.d/http-proxy.conf 文件：
+123[Service]Environment=&quot;HTTP_PROXY=http://your-proxy-server:proxy-port&quot;Environment=&quot;HTTPS_PROXY=http://your-proxy-server:proxy-port&quot;
+
+
+重新加载守护进程配置并重启 Docker：
+12sudo systemctl daemon-reloadsudo systemctl restart docker
+
+参考:https://docs.docker.com/network/proxy/
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/17/gpt/%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/" title="自动登录"><img class="post-bg" src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自动登录"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/gpt/%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/" title="自动登录">自动登录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T09:29:25.000Z" title="发表于 2024-08-17 17:29:25">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/gpt/">gpt</a></span></div><div class="content">帮我写一个油猴脚本,主要功能是自动登录网站:
+
+只对网站http://192.168.60.82:8000/生效
+
+自动填充的账号是admin,密码是123456
+
+是否需要页面加载完成自动填充?需要的请增加代码,不需要请忽略
+
+填充用户名和密码和登录过程中增加页面loading 白屏效果,防止用户看出自动登录,让用户认为不用登录
+
+该项目是vue写的,模拟输入要求过校验
+
+登录的代码如下
+ 用户名/邮箱密码请输入密码自动登录登 录
+
+​     
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/me/me-log.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">树灼</div><div class="author-info__description">熟悉java的拼写</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">50</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><marquee>欢迎访问个人小破站</marquee> <img src="https://cdn.chenshuzhuo.com/img/back.jpg"></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo java维护描述yaml"/></a><div class="content"><a class="title" href="/2024/09/08/hexo/hexo%20java%E7%BB%B4%E6%8A%A4%E6%8F%8F%E8%BF%B0yaml/" title="hexo java维护描述yaml">hexo java维护描述yaml</a><time datetime="2024-09-08T10:13:55.000Z" title="发表于 2024-09-08 18:13:55">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VLOOK-Document-Template"/></a><div class="content"><a class="title" href="/2024/09/08/%E6%A8%A1%E6%9D%BF/VLOOK-Document-Template/" title="VLOOK-Document-Template">VLOOK-Document-Template</a><time datetime="2024-09-08T07:53:24.000Z" title="发表于 2024-09-08 15:53:24">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署多前端"/></a><div class="content"><a class="title" href="/2024/09/08/nginx/nginx%E9%83%A8%E7%BD%B2%E5%A4%9A%E5%89%8D%E7%AB%AF/" title="nginx部署多前端">nginx部署多前端</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="postgresql 创建用户权限"/></a><div class="content"><a class="title" href="/2024/09/08/db/postgresql/postgresql%20%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/" title="postgresql 创建用户权限">postgresql 创建用户权限</a><time datetime="2024-09-08T07:53:23.000Z" title="发表于 2024-09-08 15:53:23">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大"><img src="https://cdn.chenshuzhuo.com/img/202303121511512.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 容器日志文件过大"/></a><div class="content"><a class="title" href="/2024/09/05/docker/Docker%20%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7/" title="Docker 容器日志文件过大">Docker 容器日志文件过大</a><time datetime="2024-09-05T11:22:04.000Z" title="发表于 2024-09-05 19:22:04">2024-09-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ai/"><span class="card-category-list-name">ai</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/"><span class="card-category-list-name">db</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/mongodb/"><span class="card-category-list-name">mongodb</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/mysql/"><span class="card-category-list-name">mysql</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/db/postgresql/"><span class="card-category-list-name">postgresql</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/gpt/"><span class="card-category-list-name">gpt</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/jvm/" style="font-size: 1.13em; color: #999a9c">jvm</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.13em; color: #999a9c">设计模式</a> <a href="/tags/hexo/" style="font-size: 1.27em; color: #99a0a9">hexo</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 1.2em; color: #999da3">正则</a> <a href="/tags/git/" style="font-size: 1.27em; color: #99a0a9">git</a> <a href="/tags/jdk8/" style="font-size: 1.13em; color: #999a9c">jdk8</a> <a href="/tags/unbuntu/" style="font-size: 1.4em; color: #99a5b6">unbuntu</a> <a href="/tags/gpt/" style="font-size: 1.1em; color: #999">gpt</a> <a href="/tags/%E5%90%B9%E6%B0%B4/" style="font-size: 1.1em; color: #999">吹水</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/vercel/" style="font-size: 1.1em; color: #999">vercel</a> <a href="/tags/maven/" style="font-size: 1.17em; color: #999c9f">maven</a> <a href="/tags/postgresql/" style="font-size: 1.13em; color: #999a9c">postgresql</a> <a href="/tags/esxi/" style="font-size: 1.3em; color: #99a1ac">esxi</a> <a href="/tags/ubuntu/" style="font-size: 1.13em; color: #999a9c">ubuntu</a> <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">小技巧</a> <a href="/tags/idea/" style="font-size: 1.1em; color: #999">idea</a> <a href="/tags/ai/" style="font-size: 1.2em; color: #999da3">ai</a> <a href="/tags/docker/" style="font-size: 1.43em; color: #99a6b9">docker</a> <a href="/tags/webpack/" style="font-size: 1.23em; color: #999ea6">webpack</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.2em; color: #999da3">前端</a> <a href="/tags/jenkins/" style="font-size: 1.1em; color: #999">jenkins</a> <a href="/tags/electron/" style="font-size: 1.13em; color: #999a9c">electron</a> <a href="/tags/oom/" style="font-size: 1.17em; color: #999c9f">oom</a> <a href="/tags/nginx/" style="font-size: 1.37em; color: #99a4b2">nginx</a> <a href="/tags/mybatis/" style="font-size: 1.1em; color: #999">mybatis</a> <a href="/tags/keepalive/" style="font-size: 1.1em; color: #999">keepalive</a> <a href="/tags/react/" style="font-size: 1.33em; color: #99a2af">react</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.1em; color: #999">语音合成</a> <a href="/tags/springboot/" style="font-size: 1.47em; color: #99a8bc">springboot</a> <a href="/tags/mongodb/" style="font-size: 1.1em; color: #999">mongodb</a> <a href="/tags/word/" style="font-size: 1.17em; color: #999c9f">word</a> <a href="/tags/%E5%9B%BD%E5%AF%86/" style="font-size: 1.1em; color: #999">国密</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 1.13em; color: #999a9c">反编译</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">安全</a> <a href="/tags/MinIO/" style="font-size: 1.1em; color: #999">MinIO</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/java/" style="font-size: 1.5em; color: #99a9bf">java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 1.17em; color: #999c9f">图床</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">41</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">93</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">194</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-08T10:42:30.496Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 树灼</div><div class="framework-info"></div><div class="footer_custom_text">Hi, 欢迎访问我的<a href="blog.chenshuzhuo.com">小破站!</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = data.hitokoto
+      }
+    })
+}
+typedJSFn.run(subtitleType)
+</script></div><div class="aplayer no-destroy" data-id="8197503748" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" > </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
